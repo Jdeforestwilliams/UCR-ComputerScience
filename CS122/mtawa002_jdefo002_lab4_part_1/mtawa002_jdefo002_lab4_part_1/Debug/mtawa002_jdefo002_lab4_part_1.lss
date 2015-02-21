@@ -1,0 +1,538 @@
+
+mtawa002_jdefo002_lab4_part_1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000004  00800100  000002e8  0000037c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000002e8  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000043  00800104  00800104  00000380  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000380  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000058  00000000  00000000  000003b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000035c  00000000  00000000  00000408  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000020d  00000000  00000000  00000764  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002fd  00000000  00000000  00000971  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000b4  00000000  00000000  00000c70  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002bf  00000000  00000000  00000d24  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000087  00000000  00000000  00000fe3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  0000106a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	60 c0       	rjmp	.+192    	; 0xc6 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	5e c0       	rjmp	.+188    	; 0xc6 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	5c c0       	rjmp	.+184    	; 0xc6 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	5a c0       	rjmp	.+180    	; 0xc6 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	58 c0       	rjmp	.+176    	; 0xc6 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	56 c0       	rjmp	.+172    	; 0xc6 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	54 c0       	rjmp	.+168    	; 0xc6 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	52 c0       	rjmp	.+164    	; 0xc6 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	50 c0       	rjmp	.+160    	; 0xc6 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	4e c0       	rjmp	.+156    	; 0xc6 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	4c c0       	rjmp	.+152    	; 0xc6 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	4a c0       	rjmp	.+148    	; 0xc6 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	6d c0       	rjmp	.+218    	; 0x110 <__vector_13>
+  36:	00 00       	nop
+  38:	46 c0       	rjmp	.+140    	; 0xc6 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	44 c0       	rjmp	.+136    	; 0xc6 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	42 c0       	rjmp	.+132    	; 0xc6 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	40 c0       	rjmp	.+128    	; 0xc6 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	3e c0       	rjmp	.+124    	; 0xc6 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	3c c0       	rjmp	.+120    	; 0xc6 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	3a c0       	rjmp	.+116    	; 0xc6 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	38 c0       	rjmp	.+112    	; 0xc6 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	36 c0       	rjmp	.+108    	; 0xc6 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	34 c0       	rjmp	.+104    	; 0xc6 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	32 c0       	rjmp	.+100    	; 0xc6 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	30 c0       	rjmp	.+96     	; 0xc6 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	2e c0       	rjmp	.+92     	; 0xc6 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	2c c0       	rjmp	.+88     	; 0xc6 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	2a c0       	rjmp	.+84     	; 0xc6 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	28 c0       	rjmp	.+80     	; 0xc6 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	26 c0       	rjmp	.+76     	; 0xc6 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	24 c0       	rjmp	.+72     	; 0xc6 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	22 c0       	rjmp	.+68     	; 0xc6 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	20 c0       	rjmp	.+64     	; 0xc6 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	1e c0       	rjmp	.+60     	; 0xc6 <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e4       	ldi	r29, 0x40	; 64
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e8 ee       	ldi	r30, 0xE8	; 232
+  a0:	f2 e0       	ldi	r31, 0x02	; 2
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a4 30       	cpi	r26, 0x04	; 4
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	21 e0       	ldi	r18, 0x01	; 1
+  b4:	a4 e0       	ldi	r26, 0x04	; 4
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a7 34       	cpi	r26, 0x47	; 71
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	cf d0       	rcall	.+414    	; 0x262 <main>
+  c4:	0f c1       	rjmp	.+542    	; 0x2e4 <_exit>
+
+000000c6 <__bad_interrupt>:
+  c6:	9c cf       	rjmp	.-200    	; 0x0 <__vectors>
+
+000000c8 <TimerOn>:
+	TCCR1B 	= 0x00;
+}
+
+unsigned char SM1_Clk;
+void TimerISR() {
+	SM1_Clk = 1;
+  c8:	8b e0       	ldi	r24, 0x0B	; 11
+  ca:	80 93 81 00 	sts	0x0081, r24
+  ce:	8d e7       	ldi	r24, 0x7D	; 125
+  d0:	90 e0       	ldi	r25, 0x00	; 0
+  d2:	90 93 89 00 	sts	0x0089, r25
+  d6:	80 93 88 00 	sts	0x0088, r24
+  da:	82 e0       	ldi	r24, 0x02	; 2
+  dc:	80 93 6f 00 	sts	0x006F, r24
+  e0:	10 92 85 00 	sts	0x0085, r1
+  e4:	10 92 84 00 	sts	0x0084, r1
+  e8:	80 91 00 01 	lds	r24, 0x0100
+  ec:	90 91 01 01 	lds	r25, 0x0101
+  f0:	a0 91 02 01 	lds	r26, 0x0102
+  f4:	b0 91 03 01 	lds	r27, 0x0103
+  f8:	80 93 05 01 	sts	0x0105, r24
+  fc:	90 93 06 01 	sts	0x0106, r25
+ 100:	a0 93 07 01 	sts	0x0107, r26
+ 104:	b0 93 08 01 	sts	0x0108, r27
+ 108:	8f b7       	in	r24, 0x3f	; 63
+ 10a:	80 68       	ori	r24, 0x80	; 128
+ 10c:	8f bf       	out	0x3f, r24	; 63
+ 10e:	08 95       	ret
+
+00000110 <__vector_13>:
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+ 110:	1f 92       	push	r1
+ 112:	0f 92       	push	r0
+ 114:	0f b6       	in	r0, 0x3f	; 63
+ 116:	0f 92       	push	r0
+ 118:	11 24       	eor	r1, r1
+ 11a:	8f 93       	push	r24
+ 11c:	9f 93       	push	r25
+ 11e:	af 93       	push	r26
+ 120:	bf 93       	push	r27
+	_avr_timer_cntcurr--;
+ 122:	80 91 05 01 	lds	r24, 0x0105
+ 126:	90 91 06 01 	lds	r25, 0x0106
+ 12a:	a0 91 07 01 	lds	r26, 0x0107
+ 12e:	b0 91 08 01 	lds	r27, 0x0108
+ 132:	01 97       	sbiw	r24, 0x01	; 1
+ 134:	a1 09       	sbc	r26, r1
+ 136:	b1 09       	sbc	r27, r1
+ 138:	80 93 05 01 	sts	0x0105, r24
+ 13c:	90 93 06 01 	sts	0x0106, r25
+ 140:	a0 93 07 01 	sts	0x0107, r26
+ 144:	b0 93 08 01 	sts	0x0108, r27
+	if (_avr_timer_cntcurr == 0) {
+ 148:	89 2b       	or	r24, r25
+ 14a:	8a 2b       	or	r24, r26
+ 14c:	8b 2b       	or	r24, r27
+ 14e:	99 f4       	brne	.+38     	; 0x176 <__vector_13+0x66>
+	TCCR1B 	= 0x00;
+}
+
+unsigned char SM1_Clk;
+void TimerISR() {
+	SM1_Clk = 1;
+ 150:	81 e0       	ldi	r24, 0x01	; 1
+ 152:	80 93 46 01 	sts	0x0146, r24
+ISR(TIMER1_COMPA_vect)
+{
+	_avr_timer_cntcurr--;
+	if (_avr_timer_cntcurr == 0) {
+		TimerISR();
+		_avr_timer_cntcurr = _avr_timer_M;
+ 156:	80 91 00 01 	lds	r24, 0x0100
+ 15a:	90 91 01 01 	lds	r25, 0x0101
+ 15e:	a0 91 02 01 	lds	r26, 0x0102
+ 162:	b0 91 03 01 	lds	r27, 0x0103
+ 166:	80 93 05 01 	sts	0x0105, r24
+ 16a:	90 93 06 01 	sts	0x0106, r25
+ 16e:	a0 93 07 01 	sts	0x0107, r26
+ 172:	b0 93 08 01 	sts	0x0108, r27
+	}
+}
+ 176:	bf 91       	pop	r27
+ 178:	af 91       	pop	r26
+ 17a:	9f 91       	pop	r25
+ 17c:	8f 91       	pop	r24
+ 17e:	0f 90       	pop	r0
+ 180:	0f be       	out	0x3f, r0	; 63
+ 182:	0f 90       	pop	r0
+ 184:	1f 90       	pop	r1
+ 186:	18 95       	reti
+
+00000188 <transmit_data>:
+
+void transmit_data(unsigned char data) {
+	int i;
+	for (i = 7; i >= 0 ; --i) {
+ 188:	27 e0       	ldi	r18, 0x07	; 7
+ 18a:	30 e0       	ldi	r19, 0x00	; 0
+		// Sets SRCLR to 1 allowing data to be set
+		// Also clears SRCLK in preparation of sending data
+		PORTC = 0x08;
+ 18c:	78 e0       	ldi	r23, 0x08	; 8
+		// set SER = next bit of data to be sent.
+		PORTC |= ((data >> i) & 0x01);
+ 18e:	90 e0       	ldi	r25, 0x00	; 0
+void transmit_data(unsigned char data) {
+	int i;
+	for (i = 7; i >= 0 ; --i) {
+		// Sets SRCLR to 1 allowing data to be set
+		// Also clears SRCLK in preparation of sending data
+		PORTC = 0x08;
+ 190:	78 b9       	out	0x08, r23	; 8
+		// set SER = next bit of data to be sent.
+		PORTC |= ((data >> i) & 0x01);
+ 192:	68 b1       	in	r22, 0x08	; 8
+ 194:	ac 01       	movw	r20, r24
+ 196:	02 2e       	mov	r0, r18
+ 198:	02 c0       	rjmp	.+4      	; 0x19e <transmit_data+0x16>
+ 19a:	55 95       	asr	r21
+ 19c:	47 95       	ror	r20
+ 19e:	0a 94       	dec	r0
+ 1a0:	e2 f7       	brpl	.-8      	; 0x19a <transmit_data+0x12>
+ 1a2:	41 70       	andi	r20, 0x01	; 1
+ 1a4:	46 2b       	or	r20, r22
+ 1a6:	48 b9       	out	0x08, r20	; 8
+		// set SRCLK = 1. Rising edge shifts next bit of data into the shift register
+		PORTC |= 0x04;
+ 1a8:	42 9a       	sbi	0x08, 2	; 8
+	}
+}
+
+void transmit_data(unsigned char data) {
+	int i;
+	for (i = 7; i >= 0 ; --i) {
+ 1aa:	21 50       	subi	r18, 0x01	; 1
+ 1ac:	31 09       	sbc	r19, r1
+ 1ae:	80 f7       	brcc	.-32     	; 0x190 <transmit_data+0x8>
+		PORTC |= ((data >> i) & 0x01);
+		// set SRCLK = 1. Rising edge shifts next bit of data into the shift register
+		PORTC |= 0x04;
+	}
+	// set RCLK = 1. Rising edge copies data from the “Shift” register to the “Storage” register
+	PORTC |= 0x02;
+ 1b0:	41 9a       	sbi	0x08, 1	; 8
+	// clears all lines in preparation of a new transmission
+	PORTC = 0x00;
+ 1b2:	18 b8       	out	0x08, r1	; 8
+ 1b4:	08 95       	ret
+
+000001b6 <TickFct_State_machine_1>:
+}
+
+enum SM1_States { SM1_intial, SM1_increment, SM1_waiting, SM1_decrement, SM1_Both } SM1_State;
+
+int TickFct_State_machine_1() {
+	switch(SM1_State) { // Transitions
+ 1b6:	80 91 45 01 	lds	r24, 0x0145
+ 1ba:	82 30       	cpi	r24, 0x02	; 2
+ 1bc:	a9 f0       	breq	.+42     	; 0x1e8 <TickFct_State_machine_1+0x32>
+ 1be:	28 f4       	brcc	.+10     	; 0x1ca <TickFct_State_machine_1+0x14>
+ 1c0:	88 23       	and	r24, r24
+ 1c2:	51 f0       	breq	.+20     	; 0x1d8 <TickFct_State_machine_1+0x22>
+ 1c4:	81 30       	cpi	r24, 0x01	; 1
+ 1c6:	61 f0       	breq	.+24     	; 0x1e0 <TickFct_State_machine_1+0x2a>
+ 1c8:	47 c0       	rjmp	.+142    	; 0x258 <TickFct_State_machine_1+0xa2>
+ 1ca:	83 30       	cpi	r24, 0x03	; 3
+ 1cc:	09 f4       	brne	.+2      	; 0x1d0 <TickFct_State_machine_1+0x1a>
+ 1ce:	3c c0       	rjmp	.+120    	; 0x248 <TickFct_State_machine_1+0x92>
+ 1d0:	84 30       	cpi	r24, 0x04	; 4
+ 1d2:	09 f4       	brne	.+2      	; 0x1d6 <TickFct_State_machine_1+0x20>
+ 1d4:	3d c0       	rjmp	.+122    	; 0x250 <TickFct_State_machine_1+0x9a>
+ 1d6:	40 c0       	rjmp	.+128    	; 0x258 <TickFct_State_machine_1+0xa2>
+		case -1:
+		SM1_State = SM1_intial;
+		break;
+		case SM1_intial:
+		if (1) {
+			SM1_State = SM1_waiting;
+ 1d8:	82 e0       	ldi	r24, 0x02	; 2
+ 1da:	80 93 45 01 	sts	0x0145, r24
+		}
+		break;
+ 1de:	08 95       	ret
+		case SM1_increment:
+		if (1) {
+			SM1_State = SM1_waiting;
+ 1e0:	82 e0       	ldi	r24, 0x02	; 2
+ 1e2:	80 93 45 01 	sts	0x0145, r24
+		}
+		break;
+ 1e6:	08 95       	ret
+		case SM1_waiting:
+		if (!(PINA & 0x01) && !(PINA & 0x02)) {
+ 1e8:	00 99       	sbic	0x00, 0	; 0
+ 1ea:	02 c0       	rjmp	.+4      	; 0x1f0 <TickFct_State_machine_1+0x3a>
+ 1ec:	01 9b       	sbis	0x00, 1	; 0
+ 1ee:	38 c0       	rjmp	.+112    	; 0x260 <TickFct_State_machine_1+0xaa>
+			SM1_State = SM1_waiting;
+		}
+		else if ( (PINA & 0x01) && !(PINA & 0x02) && !(output > 255)) {
+ 1f0:	00 9b       	sbis	0x00, 0	; 0
+ 1f2:	0c c0       	rjmp	.+24     	; 0x20c <TickFct_State_machine_1+0x56>
+ 1f4:	01 99       	sbic	0x00, 1	; 0
+ 1f6:	0a c0       	rjmp	.+20     	; 0x20c <TickFct_State_machine_1+0x56>
+			SM1_State = SM1_increment;
+ 1f8:	81 e0       	ldi	r24, 0x01	; 1
+ 1fa:	80 93 45 01 	sts	0x0145, r24
+	switch(SM1_State) { // State actions
+		case SM1_intial:
+		output= 0; 
+		break;
+		case SM1_increment:
+		output++;
+ 1fe:	80 91 04 01 	lds	r24, 0x0104
+ 202:	8f 5f       	subi	r24, 0xFF	; 255
+ 204:	80 93 04 01 	sts	0x0104, r24
+		transmit_data(output);
+ 208:	bf cf       	rjmp	.-130    	; 0x188 <transmit_data>
+		break;
+ 20a:	08 95       	ret
+			SM1_State = SM1_waiting;
+		}
+		else if ( (PINA & 0x01) && !(PINA & 0x02) && !(output > 255)) {
+			SM1_State = SM1_increment;
+		}
+		else if (!(PINA & 0x01) && (PINA & 0x02) && !(output==0)) {
+ 20c:	00 99       	sbic	0x00, 0	; 0
+ 20e:	10 c0       	rjmp	.+32     	; 0x230 <TickFct_State_machine_1+0x7a>
+ 210:	01 9b       	sbis	0x00, 1	; 0
+ 212:	0e c0       	rjmp	.+28     	; 0x230 <TickFct_State_machine_1+0x7a>
+ 214:	80 91 04 01 	lds	r24, 0x0104
+ 218:	88 23       	and	r24, r24
+ 21a:	51 f0       	breq	.+20     	; 0x230 <TickFct_State_machine_1+0x7a>
+			SM1_State = SM1_decrement;
+ 21c:	83 e0       	ldi	r24, 0x03	; 3
+ 21e:	80 93 45 01 	sts	0x0145, r24
+		transmit_data(output);
+		break;
+		case SM1_waiting:
+		break;
+		case SM1_decrement:
+		output--;
+ 222:	80 91 04 01 	lds	r24, 0x0104
+ 226:	81 50       	subi	r24, 0x01	; 1
+ 228:	80 93 04 01 	sts	0x0104, r24
+		transmit_data(output);
+ 22c:	ad cf       	rjmp	.-166    	; 0x188 <transmit_data>
+		break;
+ 22e:	08 95       	ret
+			SM1_State = SM1_increment;
+		}
+		else if (!(PINA & 0x01) && (PINA & 0x02) && !(output==0)) {
+			SM1_State = SM1_decrement;
+		}
+		else if ((PINA & 0x01) && (PINA & 0x02)) {
+ 230:	00 9b       	sbis	0x00, 0	; 0
+ 232:	16 c0       	rjmp	.+44     	; 0x260 <TickFct_State_machine_1+0xaa>
+ 234:	01 9b       	sbis	0x00, 1	; 0
+ 236:	14 c0       	rjmp	.+40     	; 0x260 <TickFct_State_machine_1+0xaa>
+			SM1_State = SM1_Both;
+ 238:	84 e0       	ldi	r24, 0x04	; 4
+ 23a:	80 93 45 01 	sts	0x0145, r24
+		case SM1_decrement:
+		output--;
+		transmit_data(output);
+		break;
+		case SM1_Both:
+		output= 0x00;
+ 23e:	10 92 04 01 	sts	0x0104, r1
+		transmit_data(output);
+ 242:	80 e0       	ldi	r24, 0x00	; 0
+ 244:	a1 cf       	rjmp	.-190    	; 0x188 <transmit_data>
+		break;
+ 246:	08 95       	ret
+			SM1_State = SM1_Both;
+		}
+		break;
+		case SM1_decrement:
+		if (1) {
+			SM1_State = SM1_waiting;
+ 248:	82 e0       	ldi	r24, 0x02	; 2
+ 24a:	80 93 45 01 	sts	0x0145, r24
+		}
+		break;
+ 24e:	08 95       	ret
+		case SM1_Both:
+		if (1) {
+			SM1_State = SM1_waiting;
+ 250:	82 e0       	ldi	r24, 0x02	; 2
+ 252:	80 93 45 01 	sts	0x0145, r24
+		}
+		break;
+ 256:	08 95       	ret
+		default:
+		SM1_State = SM1_intial;
+ 258:	10 92 45 01 	sts	0x0145, r1
+	} // Transitions
+
+	switch(SM1_State) { // State actions
+		case SM1_intial:
+		output= 0; 
+ 25c:	10 92 04 01 	sts	0x0104, r1
+		break;
+		default: // ADD default behaviour below
+		break;
+	} // State actions
+	
+}
+ 260:	08 95       	ret
+
+00000262 <main>:
+int main(void)
+{
+	DDRA = 0x00; PORTA = 0xFF; // Configure port A's 8 pins as inputs
+ 262:	11 b8       	out	0x01, r1	; 1
+ 264:	8f ef       	ldi	r24, 0xFF	; 255
+ 266:	82 b9       	out	0x02, r24	; 2
+	DDRC = 0xFF; PORTC = 0x00; // Configure port C's 8 pins as outputs,
+ 268:	87 b9       	out	0x07, r24	; 7
+ 26a:	18 b8       	out	0x08, r1	; 8
+	unsigned char i = 0;
+	tasks[i].state = SM1_intial;
+ 26c:	10 92 0a 01 	sts	0x010A, r1
+ 270:	10 92 09 01 	sts	0x0109, r1
+	tasks[i].period = periodIncrement;
+ 274:	84 ef       	ldi	r24, 0xF4	; 244
+ 276:	91 e0       	ldi	r25, 0x01	; 1
+ 278:	a0 e0       	ldi	r26, 0x00	; 0
+ 27a:	b0 e0       	ldi	r27, 0x00	; 0
+ 27c:	80 93 0b 01 	sts	0x010B, r24
+ 280:	90 93 0c 01 	sts	0x010C, r25
+ 284:	a0 93 0d 01 	sts	0x010D, r26
+ 288:	b0 93 0e 01 	sts	0x010E, r27
+	tasks[i].elapsedTime = tasks[i].period;
+ 28c:	80 93 0f 01 	sts	0x010F, r24
+ 290:	90 93 10 01 	sts	0x0110, r25
+ 294:	a0 93 11 01 	sts	0x0111, r26
+ 298:	b0 93 12 01 	sts	0x0112, r27
+	tasks[i].TickFct = &TickFct_State_machine_1;
+ 29c:	8b ed       	ldi	r24, 0xDB	; 219
+ 29e:	90 e0       	ldi	r25, 0x00	; 0
+ 2a0:	90 93 14 01 	sts	0x0114, r25
+ 2a4:	80 93 13 01 	sts	0x0113, r24
+unsigned long _avr_timer_cntcurr = 0;
+
+unsigned char output = 0x00; //counter variable to be output
+
+void TimerSet(unsigned long M) {
+	_avr_timer_M = M;
+ 2a8:	84 e6       	ldi	r24, 0x64	; 100
+ 2aa:	90 e0       	ldi	r25, 0x00	; 0
+ 2ac:	a0 e0       	ldi	r26, 0x00	; 0
+ 2ae:	b0 e0       	ldi	r27, 0x00	; 0
+ 2b0:	80 93 00 01 	sts	0x0100, r24
+ 2b4:	90 93 01 01 	sts	0x0101, r25
+ 2b8:	a0 93 02 01 	sts	0x0102, r26
+ 2bc:	b0 93 03 01 	sts	0x0103, r27
+	_avr_timer_cntcurr = _avr_timer_M;
+ 2c0:	80 93 05 01 	sts	0x0105, r24
+ 2c4:	90 93 06 01 	sts	0x0106, r25
+ 2c8:	a0 93 07 01 	sts	0x0107, r26
+ 2cc:	b0 93 08 01 	sts	0x0108, r27
+	tasks[i].period = periodIncrement;
+	tasks[i].elapsedTime = tasks[i].period;
+	tasks[i].TickFct = &TickFct_State_machine_1;
+	
+	TimerSet(tasksPeriodGCD);
+	TimerOn();
+ 2d0:	fb de       	rcall	.-522    	; 0xc8 <TimerOn>
+    while(1)
+    {
+		TickFct_State_machine_1();
+ 2d2:	71 df       	rcall	.-286    	; 0x1b6 <TickFct_State_machine_1>
+		while(!SM1_Clk);
+ 2d4:	80 91 46 01 	lds	r24, 0x0146
+ 2d8:	81 11       	cpse	r24, r1
+ 2da:	01 c0       	rjmp	.+2      	; 0x2de <main+0x7c>
+ 2dc:	ff cf       	rjmp	.-2      	; 0x2dc <main+0x7a>
+		SM1_Clk = 0;
+ 2de:	10 92 46 01 	sts	0x0146, r1
+    }
+ 2e2:	f7 cf       	rjmp	.-18     	; 0x2d2 <main+0x70>
+
+000002e4 <_exit>:
+ 2e4:	f8 94       	cli
+
+000002e6 <__stop_program>:
+ 2e6:	ff cf       	rjmp	.-2      	; 0x2e6 <__stop_program>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "mtawa002_jdefo002_lab8_part2_servant", "mtawa002_jdefo002_lab8_part2_servant\mtawa002_jdefo002_lab8_part2_servant.cproj", "{493798FF-8B51-4CC1-AA72-3C593CF24D9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{493798FF-8B51-4CC1-AA72-3C593CF24D9B}.Debug|AVR.ActiveCfg = Debug|AVR
+		{493798FF-8B51-4CC1-AA72-3C593CF24D9B}.Debug|AVR.Build.0 = Debug|AVR
+		{493798FF-8B51-4CC1-AA72-3C593CF24D9B}.Release|AVR.ActiveCfg = Release|AVR
+		{493798FF-8B51-4CC1-AA72-3C593CF24D9B}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "delay_test", "delay_test\delay_test.cproj", "{DDC87B9D-7D9D-4447-B541-744D2BAE4F09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDC87B9D-7D9D-4447-B541-744D2BAE4F09}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DDC87B9D-7D9D-4447-B541-744D2BAE4F09}.Debug|AVR.Build.0 = Debug|AVR
+		{DDC87B9D-7D9D-4447-B541-744D2BAE4F09}.Release|AVR.ActiveCfg = Release|AVR
+		{DDC87B9D-7D9D-4447-B541-744D2BAE4F09}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "DistanceTest", "DistanceTest\DistanceTest.cproj", "{327E51B0-E8FF-489E-BB62-5620EE9CFE1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{327E51B0-E8FF-489E-BB62-5620EE9CFE1F}.Debug|AVR.ActiveCfg = Debug|AVR
+		{327E51B0-E8FF-489E-BB62-5620EE9CFE1F}.Debug|AVR.Build.0 = Debug|AVR
+		{327E51B0-E8FF-489E-BB62-5620EE9CFE1F}.Release|AVR.ActiveCfg = Release|AVR
+		{327E51B0-E8FF-489E-BB62-5620EE9CFE1F}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
