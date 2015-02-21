@@ -2,7 +2,6 @@
 #include <string>
 #include <iomanip>
 using namespace std;
-
 int main ()
 {
     string first_name ;

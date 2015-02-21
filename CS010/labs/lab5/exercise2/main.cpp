@@ -13,29 +13,23 @@ int main()
     do 
     {
         cin >> grade ;
-        if (grade >= 90 ) 
-        {
+        if (grade >= 90 ) {
             a++;
         }
-        else if (grade >= 80)
-        {
+        else if (grade >= 80){
             b++;
         }
-        else if (grade >= 70)
-        {
+        else if (grade >= 70){
             c++;
         }
-        else if (grade >= 60)
-        {
+        else if (grade >= 60){
             d++;
         }
-        else if (grade >= 0)
-        {
+        else if (grade >= 0) {
             f++;
         }
     }
     while (grade >= 0);
-    
     cout << "You have " << a << " A's, " << b << " B's, " << c << " C's, "
          << d << " D's, and " << f << " F's.";
     return 0;

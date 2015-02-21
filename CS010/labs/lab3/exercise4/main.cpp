@@ -1,13 +1,10 @@
 #include <iostream> 
 #include <iomanip>
-
 using namespace std;
-
 int main()
 {
     double purchase_amt ;
     double amt_recieved ;
-    
     cout << "Enter purchase amount: ";
     cin >> purchase_amt ;
     cout << "Enter amount recieved: ";
@@ -26,6 +23,5 @@ int main()
     cout << setw(10) << right << "dimes " << dimes << endl;
     cout << setw(10) << right << "nickels " << nickels << endl ;
     cout << setw(10) << right << "pennies " << pennies << endl;
-    
     return 0;
 }

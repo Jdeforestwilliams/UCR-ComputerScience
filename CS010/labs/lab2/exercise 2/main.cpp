@@ -1,7 +1,5 @@
 #include <iostream>
-
 using namespace std;
-
 int main()
 {
     int age;
@@ -14,6 +12,5 @@ int main()
     cout << "Your target heart rate is between " << (bpm - age) 
         * lw_lmt << " and " << (bpm - age) * up_lmt << " bpm." << endl ;
     // bpm forumla
-
     return 0;
 }

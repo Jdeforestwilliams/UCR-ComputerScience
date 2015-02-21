@@ -10,7 +10,6 @@ int main ()
     double rand = 9.07 ;
     double rupees = 49.90 ;
     double pesos = 13.83 ;
-    
     cout << "Please enter US Dollars $" ;
     cin >> dollar ;
     double totaleuro = dollar * euros ;

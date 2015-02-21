@@ -9,15 +9,17 @@ int main()
     const int high = 100 ;
     const int low = 1 ;
     string answer ;
-    do 
-    {
+    do {
         int r =  low + rand() % (high - low + 1) ;
-        if ( r > 50)
-        cout << "Heads" << endl;
-        else 
-        cout << "Tails" << endl;
-        cout << "Would you like to play again? " ;
-        cin >>  answer ;
+        if ( r > 50){
+            cout << "Heads" << endl;
+        }
+        else{
+            cout << "Tails" << endl;
+            cout << "Would you like to play again? " ;
+            cin >>  answer ;
+        }
+            
     }
     while (answer != "no");
     return 0;

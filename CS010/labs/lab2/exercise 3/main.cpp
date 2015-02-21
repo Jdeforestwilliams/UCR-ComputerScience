@@ -1,7 +1,5 @@
 #include <iostream> 
-
 using namespace std;
-
 int main ()
 {
     double acct_bal ;
@@ -16,8 +14,7 @@ int main ()
     cin >> num_yrs ;
     double total = (acct_bal * int_rate * num_yrs)/ percent ;
     cout << " " << endl ;
-    cout << "Your interest income after " << num_yrs 
-        << " years is $" << total << "." <<endl ;
-    // total interest formula
+    cout << "Your interest income after " << num_yrs  
+         << " years is $" << total << "." <<endl ; // total interest formula
     return 0;
 }
