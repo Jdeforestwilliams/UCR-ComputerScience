@@ -1,0 +1,432 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head><body><h1 style="text-align: center; "><span style="color: blue; ">CS 13 - Assignment 5</span></h1>
+
+
+
+
+
+
+
+
+
+<hr>
+<h1 style="margin-left: 0.5in; ">Collaboration Policy</h1>
+
+
+
+
+
+
+
+
+
+<p style="margin-left: 0.5in; ">
+Collaboration between students on programming assignments is <span style="font-weight: bold; ">NOT</span> allowed under
+any circumstances; nor is getting coding assistance or copying code
+from <span style="font-weight: bold; ">ANY</span>
+outside source (any book, current or past students, past solutions
+(even if they are your own!), web sites, etc.). We
+test every submission for copying and when we find it we treat it as
+flagrant academic dishonesty on the part of <span style="font-weight: bold; font-style: italic; ">all</span>
+parties involved, regardless of their roles as provider or consumer.
+The penalty is generally instant failure in the course in addition to
+the usual sanctions applied by <a target="_blank" href="http://conduct.ucr.edu/Policies/Academic+Integrity+Policy+and+Procedures.htm">Student Judicial Affairs</a>.
+<br>
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+While working on a programming assignment,
+you <span style="font-weight: bold; font-style: italic; ">may</span>
+discuss general solution ideas with other members of the class, or have
+them observe a run of your program and offer their ideas on
+its behavior - indeed, we encourage you to do this openly, particularly
+via the Piazza forums. You may <span style="font-weight: bold; font-style: italic; ">never</span>
+look at someone else's code for the assignment to figure
+out how to do your own program - among other things, it is very hard
+to write your own unique solution once you have
+seen someone else's. If you need someone to look at your code
+to give advice, you should see a TA or instructor.
+</p>
+
+
+
+
+
+
+
+<hr>
+<!--
+<font color=red>
+<h2>Corrections and Clarifications</h2>
+<p>These are a list of corrections and/or clarifications made to the specifications since it was first posted:</p>
+</font>
+<ul>
+<li>May 8, 8:00am
+   <ul>
+   <li>IntVector(unsigned int size) - data initialization clarified</li>
+   <li>insert - when to call exit(0) corrected</li>
+   <li>expand( unsigned int amount ) - expand amount corrected</li>
+   </ul>
+</li>
+</ul>
+<p>Please view the specs for each of these functions for exact changes (they will be in red).</p>
+-->
+<hr>
+<h2>Assignment submission instructions</h2>
+
+
+
+
+
+
+
+
+
+<p>Your assignment must be submitted as a <span style="font-weight: bold; font-style: italic; ">zip file </span> containing all of your class
+header (.h) and implementation (.cpp) files.
+<br>
+
+
+
+
+
+
+
+
+
+
+
+Submit your work via the appropriate ILearn assignment link. (Make sure
+you use the right link and <b><u>click on the attach button</u></b> - if we can't find it, we can't grade it!)
+</p>
+
+
+
+
+
+
+
+
+
+<p>
+Remember to include the following header information at the top of your
+program:
+</p>
+
+
+
+
+
+
+
+
+
+<pre>// Course: CS 13 &lt;quarter &amp; year&gt;<br>//<br>// First Name: <br>// Last Name: <br>// Course username: &lt;enter the username you use to login in the lab&gt;<br>// email address: &lt;enter your <span style="font-weight: bold; ">cs</span> or <span style="font-weight: bold; ">UCR student</span> email address here&gt;<br>//<br>// Lecture Section: &lt;e.g. 001&gt;<br>// Lab Section: &lt;e.g. 021&gt;<br>// TA: <br>//<br>// Assignment: &lt;assn1, hw2, lab3, etc.&gt;<br>//<br>// I hereby certify that the code in this file<br>// is ENTIRELY my own original work.<br>//<br>// =================================================================</pre>
+
+
+
+
+
+
+
+
+
+<p>NOTE: This header MUST appear at the top of EVERY file
+submitted as part of your assignment<br>
+
+
+
+
+
+
+
+
+
+(don't forget to fill in *your* details!!). </p>
+
+
+
+
+
+
+
+
+
+<hr>
+<h2>Assignment specs:</h2>
+
+<p>You are going to finish building a smaller, simpler version of the 
+STL vector class that is capable of only storing integers. 
+Appropriately, it
+will be called IntVector. This class will encapsulate a dynamically 
+allocated array of integers.</p>
+
+<p>You are required to come up with a header file (.h) that declares the class 
+interface and a separate implementation file (.cpp) that 
+implements the member functions. We will provide the final test harness 
+(main.cpp file) that will be used to fully test your class, but 
+you should come up with your own test harness to test just the functions 
+you are currently working on while you are developing the 
+IntVector class. Never implement more than 1 or 2 member functions without 
+fulling testing them with your own test harness.</p>
+
+<hr>
+<h3>Encapsulated (Private) Data Fields</h3>
+
+<ul>
+<li>sz: unsigned int</li>
+<li>cap: unsigned int</li>
+<li>data: int *</li>
+</ul>
+
+<hr>
+<h3>Public Inteface (Public Member Functions)</h3>
+
+<ul>
+<li>IntVector()</li>
+<li>IntVector( unsigned int size )</li>
+<li>IntVector( unsigned int size, int value )</li>
+<li>~IntVector()</li>
+<li>unsigned int size( ) const</li>
+<li>unsigned int capacity( ) const</li>
+<li>bool empty( ) const</li>
+<li>const int &amp;at( unsigned int index ) const</li>
+<li>int &amp;at( unsigned int index )</li>
+<li>void insert( unsigned int index, int value )</li>
+<li>void erase( unsigned int index )</li>
+<li>const int &amp;front( ) const </li>
+<li>int &amp;front( )</li>
+<li>const int &amp;back( ) const </li>
+<li>int &amp;back( )</li>
+<li>void assign( unsigned int n, int value )</li>
+<li>void push_back( int value )</li>
+<li>void pop_back( )</li>
+<li>void clear( )</li>
+<li>void resize( unsigned int sz )</li>
+<li>void resize( unsigned int sz, int value )</li>
+<li>void reserve( unsigned int n )</li>
+</ul>
+
+<hr>
+<h3>Private Helper Functions</h3>
+<ul>
+<li>void expand()</li>
+<li>void expand( unsigned int amount )</li>
+</ul>
+
+<hr>
+<p>We will not be implementing iterators. On the most part, though, the above functions 
+should work just like the STL vector class
+member function with the same name. Please see the following pages to 
+get a better idea of what each function should do:
+<a href="http://www.cplusplus.com/reference/stl/vector/">STL Vector</a>.
+
+</p>
+
+<h2>Functions implemented for assn4 (constructors, destructor and accessors)</h2>
+
+<h3>Constructors</h3>
+
+<h4>IntVector( ) - the default constructor</h4>
+<p>This function should set both the size and capacity to 0 and will not allocate any memory to store integers
+(make sure you do not have a dangling pointer).</p>
+
+<h4>IntVector( unsigned int size )</h4>
+<p>Sets both the size and capacity to the value of the parameter passed in and dynamically allocates an array
+of that size as well. <font color="red">(Don't forget to initialize all values in your array to 0.)</font></p>
+
+<h4>IntVector( unsigned int size, int value )</h4>
+<p>Sets both the size and capacity to the value of the parameter passed in and dynamically allocates an array
+of that size as well. This function should initialize all elements of the array to the value of the 2nd
+parameter.</p>
+
+<h3>Destructor</h3>
+<h4>~IntVector( )</h4>
+<p>This function should deallocate all remaining dynamically allocated memory.</p>
+
+<h3>Accessors</h3>
+
+
+<h4>unsigned int size( ) const</h4>
+<p>This function returns the current size (not the capacity) of the IntVector object, which is the value stored in
+the size data field.</p>
+
+<h4>unsigned int capacity( ) const</h4>
+<p>This function returns the current capacity (not the size) of the IntVector object, which is the value stored in
+the capacity data field.</p>
+
+<h4>bool empty( ) const</h4>
+<p>Returns whether the vector is empty (the size field is 0).</p>
+
+<h4>const int &amp;at( unsigned int index ) const</h4>
+<p>This function will return the value stored at the element at the passed in index position. Your function
+should cause the program to exit if an index greater than or equal to the size is passed in. Because the index
+is an unsigned int (rather than just int) the compiler will not allow for a negative value to be passed in.</p>
+
+<h4>const int &amp;front( ) const</h4>
+<p>This function will return the value stored at the first element.</p>
+
+<h4>const int &amp;back( ) const</h4>
+<p>This function will return the value stored at the last element.</p>
+
+<hr>
+
+<h2>The functions to be added for assn5 (mutators, private helper function)</h2><h2>
+
+</h2><h4>void expand()</h4>
+<p>This function will double the capacity of the vector. This function should reallocate memory for the
+dynamically allocated array and update the value of capacity. </p>
+
+<p>Make sure you don't create a memory leak here.</p>
+
+<h4>void expand( unsigned int amount )</h4>
+<p>This function will expand the capacity of the vector by amount passed in. This function should reallocate memory for the
+dynamically allocated array and update the value of capacity. </p>
+
+<p>Make sure you don't create a memory leak here.</p>
+
+
+<h4>void insert( unsigned int index, int value )</h4>
+<p>This function inserts data at location index. To do this, all values currently at position index and greater 
+are shifted to the right by 1 (to the element right after its current position).</p>
+<p>Size is increased by 1. 
+If size becomes larger than capacity, this function needs to double the capacity. In other words, 
+if capacity and size are both 20 when this function is called, capacity will become 40 and size will be 
+set to 21.</p>
+<p>Since other functions will also potentially need to expand (double) the capacity, 
+implement the private helper function named expand (see above) to do this for you. This function should call
+exit(0) if an index value greater than size is passed in.
+</p>
+
+<h4>void erase( unsigned int index )</h4>
+<p>This function removes the value at position index and shifts all of the values at positions greater than index
+to the left by one (to the element right before its current position).</p>
+<p>Size is decreased by 1. This function should call
+exit(0) if an index value greater than or equal to size is passed in.</p>
+
+<h4>void push_back( int value )</h4>
+<p>This function inserts a value at the back end of the array.</p>
+<p>Size is increased by 1. If size becomes larger than capacity, 
+this function needs to double the capacity. In other words, 
+if capacity and size are both 20 when this function is called, capacity will become 40 and size will be 
+set to 21.</p>
+<p>Since other functions will also potentially need to expand (double) the capacity, 
+implement the private helper function named expand (see above) to do this for you.
+</p>
+
+<h4>void pop_back()</h4>
+<p>This function just needs to decrease size by 1.</p>
+<p>This function should call
+exit(0) if pop_back is called on an empty vector.
+</p>
+
+<h4>void clear()</h4>
+<p>This function reduces the size of the vector to 0.</p>
+
+<h4>void resize( unsigned int size )</h4>
+<p>This function resizes the vector to containt size elements.</p>
+<p>If size is smaller than the current size, this function just reduces the value of sz to size.</p>
+<p>If size is greater than the current size, then the appropriate number of elements are inserted at the end of the vector,
+giving all of the new elements a value of 0.</p>
+<p>If the new value of size will be larger than capacity, then the capacity should be expanded by either doubling (expand())
+or by increasing the capacity by a specific amount (expand(size - cap)), whichever results in the largest capacity.</p>
+
+<h4>void resize( unsigned int size, int value )</h4>
+<p>This function resizes the vector to containt size elements.</p>
+<p>If size is smaller than the current size, this function just reduces the value of sz to size.</p>
+<p>If size is greater than the current size, then the appropriate number of elements are inserted at the end of the vector,
+giving all of the new elements the value passed in through the 2nd parameter (value).</p>
+<p>If the new value of size will be larger than capacity, then the capacity should be expanded by either doubling (expand())
+or by increasing the capacity by a specific amount (expand(size - cap)), 
+whichever results in the largest capacity.</p>
+
+
+<h4>void reserve( unsigned int n )</h4>
+<p>This function requests that the capacity (the size of the dynamically allocated array) be set to n <b><i>at minimum</i></b>.
+This informs the vector of a planned increase in size, although notice that the parameter n informs of a minimum, 
+so the resulting capacity may be any capacity equal or larger than this.</p>
+
+<p>This function should <b>NOT</b> ever reduce the size of the vector. If n is larger than the current 
+capacity then the capacity should be expanded by either doubling (expand())
+or by increasing the capacity by a specific amount (expand(n - cap)), whichever results in the largest capacity.</p>
+
+<p>In any case, a call to this function never affects the elements contained in the vector, nor the vector size.</p>
+
+<h4>void assign( unsigned int n, int value )</h4>
+<p>Assigns new content to the vector object, dropping all the elements 
+contained in the vector before the call 
+and replacing them by those specified by the parameters. The new value 
+of size will be n and all values stored in the vector will 
+have the value of the 2nd parameter.</p>
+
+<p>If the new value of size will be larger than capacity, then the capacity should be expanded by either doubling (expand())
+or by increasing the capacity by a specific amount (expand(n - cap)), whichever results in the largest capacity.</p>
+
+<h4>int &amp;at( unsigned int index )</h4>
+<p>This function will return the value stored at the element at the passed in index position. Your function
+should cause the program to exit if an index greater than or equal to the size is passed in. Because the index
+is an unsigned int (rather than just int) the compiler will not allow for a negative value to be passed in.</p>
+
+<h4>int &amp;front( )</h4>
+<p>This function will return the value stored at the first element.</p>
+
+<h4>int &amp;back( )</h4>
+<p>This function will return the value stored at the last element.</p>
+
+<hr>
+
+
+<hr style="width: 100%; height: 2px; ">
+<!--
+<h3>Rubric: (out of 100 points)<br />
+
+
+<ul>
+<li>20 pts: Correctly reads data from a data file into 2 parallel arrays 
+            (one array of flight-path angles and one array of corresponding coefficients of lift).</li>
+<li>10 pts: Correctly gets filename from user and gets the data from this file.</li>
+<li>10 pts: Correctly verifies requested flight-path angle is within bounds of data set.</li>
+<li>20 pts: Linear interpolation function is defined and used correctly.</li>
+<li>20 pts: Ordered function is definied and used correctly.</li>
+<li>10 pts: Reorder function is defined and used correctly.</li>
+<li>10 pts: Program continues until user answers no.</li>
+</ul>
+
+<h4>Deductions</h4>
+<ul>
+<li> - 100 pts: Submitting a file other than a simple text file named main.cpp.</li>
+<li> - 100 pts: Failing to click on attach button when submitting your file (not actually attaching the file).</li>
+<li> - 100 pts: Program does not compile.</li>
+<li> - 20 pts: Header information is missing or incomplete.</li>
+<li> - 20 pts: 20 points deducted for EACH global variable used. (DO NOT use global variables.)</li>
+<li> - 20 pts: Style - 2 pts per infraction up to a max of 20 pts.</li>
+  <ul>
+    <li>comments - Should be able to figure out the logic of your program just by reading the comments (without looking at the actual code).
+    <li>indentation - all lines inside a block should be indented the same number of spaces (not tabs!).</li>
+    <li>spacing - blank lines should be used to separate logic blocks</li>
+    <li>meaningful variable and constant names</li>
+    <li>no magic numbers (numbers used more than once or where it is not obvious what the number represents should be declared as constants)</li>
+    <li>line wraps (no line of code should ever be more than 80 characters wide) </li>
+  </ul>
+
+-->
+
+
+
+</body></html>

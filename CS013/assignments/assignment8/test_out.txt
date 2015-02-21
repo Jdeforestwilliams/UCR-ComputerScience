@@ -1,0 +1,99 @@
+
+-----Test IntList copy constructor------------------
+-----Test IntList overloaded =operator--------------
+list1 constructor called
+pushfront 10
+pushfront 20
+pushfront 30
+list1.print: 30 20 10 
+list2 copy constructor called
+list2.print: 30 20 10 
+list3 constructor called
+list3 = list2
+list3.print: 30 20 10 
+list3.push_back(40)
+list3 print: 30 20 10 40 
+list1 = list2 = list3;
+list1 print: 30 20 10 40 
+list2 print: 30 20 10 40 
+list3 print: 30 20 10 40 
+list1, list2, list3 destructors finished
+
+-----Test SortedSet constructors----------------------
+-----Test SortedSet =operator-------------------------
+sset2 constucted
+push_back( 10 )
+push_back( 20 )
+push_back( 30 )
+sset2 print: 10 20 30 
+sset3 constructed
+push_back( 20 )
+push_back( 30 )
+push_back( 40 )
+sset3 print: 20 30 40 
+sset4 copy constructor called (sset3)
+sset4 print: 20 30 40 
+sset4 = sset2;
+sset4 print: 10 20 30 
+sset2, sset3, sset4 destructors finished
+
+list2 constructed
+list2 print: 50 60 40 0 30 30 30 10 0 20 10 
+sset5 constructed (list2)
+sset5 print: 0 10 20 30 40 50 60 
+---------Testing | and |= ------------------------------
+sset6 constructed
+sset6 print: 0 10 80 90 100 
+sset7 constructed
+sset7 = sset6 | sset5;
+sset7 print: 0 10 20 30 40 50 60 80 90 100 
+sset8 constructed
+sset8 print: 200 
+sset8 |= sset7;
+sset8 print: 0 10 20 30 40 50 60 80 90 100 200 
+
+----------testing add-------------
+sset9 constructed
+sset9.add( 50 )
+sset9 print: 50 
+sset9.add( 20 )
+sset9 print: 20 50 
+sset9.add( 100 )
+sset9 print: 20 50 100 
+sset9.add( 30 )
+sset9.add( 80 )
+sset9 print: 20 30 50 80 100 
+sset9.add( 20 )
+sset9.add( 30 )
+sset9.add( 50 )
+sset9.add( 80 )
+sset9.add( 100 )
+sset9 print: 20 30 50 80 100 
+
+----------testing in-------------
+using sset9
+sset9 print: 20 30 50 80 100 
+20 in
+30 in
+50 in
+80 in
+100 in
+0 not in
+25 not in
+40 not in
+90 not in
+200 not in
+
+----------testing & and &= --------
+sset10 constructed
+sset9 print: 20 30 50 80 100 
+sset10 print: 0 20 40 50 90 110 
+sset9 &= sset10
+sset9 print: 20 50 
+sset9 add 0, 110
+sset9 print: 0 20 50 110 
+sset10 print: 0 20 40 50 90 110 
+sset11 constructed
+sset11 = sset9 & sset10;
+sset11 print: 0 20 50 110 
+

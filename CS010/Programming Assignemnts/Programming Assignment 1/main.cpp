@@ -1,0 +1,27 @@
+// Course: CS 10 <quarter & year>
+//
+// First Name: Joshua 
+// Last Name: DeForest-Williams
+// Course username: <jdefo002>
+// email address: <jdefo002@student.ucr.edu>
+//
+// Lecture Section: <001>
+// Lab Section: <024>
+// TA: Ting-Kai Huang
+//
+// Assignment: <Programming Assignment 1>
+//
+// I hereby certify that the code in this file
+// is ENTIRELY my own original work.
+
+#include <iostream>
+#include <string> 
+
+using namespace std;
+
+int main()
+{
+    string my_name = "Joshua DeForest-Williams";
+    cout << "Hello! My Name is " << my_name <<"." <<endl;
+    return 0;
+}

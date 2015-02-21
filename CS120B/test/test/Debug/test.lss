@@ -1,0 +1,2811 @@
+
+test.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000089a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  00800060  0000089a  0000092e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000014  00800064  00800064  00000932  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  00000934  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000082  00000000  00000000  00001000  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      0000002f  00000000  00000000  00001082  2**0
+                  CONTENTS, READONLY
+  6 .debug_aranges 00000080  00000000  00000000  000010b1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00000b69  00000000  00000000  00001131  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 0000029f  00000000  00000000  00001c9a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   000008ce  00000000  00000000  00001f39  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000140  00000000  00000000  00002808  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    0000025d  00000000  00000000  00002948  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    00000478  00000000  00000000  00002ba5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 000002b8  00000000  00000000  0000301d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 7e 00 	jmp	0xfc	; 0xfc <__vector_10>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ea e9       	ldi	r30, 0x9A	; 154
+  68:	f8 e0       	ldi	r31, 0x08	; 8
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a4 36       	cpi	r26, 0x64	; 100
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a4 e6       	ldi	r26, 0x64	; 100
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a8 37       	cpi	r26, 0x78	; 120
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 2c 04 	call	0x858	; 0x858 <main>
+  8a:	0c 94 4b 04 	jmp	0x896	; 0x896 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <TimerSet>:
+	{
+		// Scheduler code
+		for ( i = 0; i < 1; i++ )
+		{
+			// Task is ready to tick
+			if ( tasks[i]->elapsedTime == tasks[i]->period )
+  92:	60 93 60 00 	sts	0x0060, r22
+  96:	70 93 61 00 	sts	0x0061, r23
+			{
+				// Setting next state for task
+				tasks[i]->state = tasks[i]->TickFct(tasks[i]->state);
+  9a:	80 93 62 00 	sts	0x0062, r24
+  9e:	90 93 63 00 	sts	0x0063, r25
+  a2:	60 93 64 00 	sts	0x0064, r22
+  a6:	70 93 65 00 	sts	0x0065, r23
+  aa:	80 93 66 00 	sts	0x0066, r24
+  ae:	90 93 67 00 	sts	0x0067, r25
+				// Reset the elapsed time for next tick.
+				tasks[i]->elapsedTime = 0;
+  b2:	08 95       	ret
+
+000000b4 <TimerOn>:
+  b4:	8b e0       	ldi	r24, 0x0B	; 11
+  b6:	83 bf       	out	0x33, r24	; 51
+			}
+			tasks[i]->elapsedTime += 1;
+  b8:	8d e7       	ldi	r24, 0x7D	; 125
+  ba:	8c bf       	out	0x3c, r24	; 60
+  bc:	82 e0       	ldi	r24, 0x02	; 2
+  be:	89 bf       	out	0x39, r24	; 57
+  c0:	12 be       	out	0x32, r1	; 50
+  c2:	80 91 60 00 	lds	r24, 0x0060
+  c6:	90 91 61 00 	lds	r25, 0x0061
+  ca:	a0 91 62 00 	lds	r26, 0x0062
+	// Run all tasks forever....
+	unsigned short i; // Scheduler for-loop iterator
+	while(1)
+	{
+		// Scheduler code
+		for ( i = 0; i < 1; i++ )
+  ce:	b0 91 63 00 	lds	r27, 0x0063
+  d2:	80 93 64 00 	sts	0x0064, r24
+			}
+			tasks[i]->elapsedTime += 1;
+		}
+
+		//Process_LCD_Task(1);
+		while(!TimerFlag);
+  d6:	90 93 65 00 	sts	0x0065, r25
+  da:	a0 93 66 00 	sts	0x0066, r26
+		
+		TimerFlag = 0;
+  de:	b0 93 67 00 	sts	0x0067, r27
+	}
+  e2:	8f b7       	in	r24, 0x3f	; 63
+
+	// TimerISR will be called every _avr_timer_cntcurr milliseconds
+	_avr_timer_cntcurr = _avr_timer_M;
+
+	//Enable global interrupts
+	SREG |= 0x80;	// 0x80: 1000000
+  e4:	80 68       	ori	r24, 0x80	; 128
+  e6:	8f bf       	out	0x3f, r24	; 63
+  e8:	08 95       	ret
+
+000000ea <TimerISR>:
+{
+	TCCR0 	= 0x00; // bit2bit1bit0=000: timer off
+}
+
+void TimerISR() {
+	TimerFlag = 1;
+  ea:	81 e0       	ldi	r24, 0x01	; 1
+  ec:	80 93 68 00 	sts	0x0068, r24
+	counter++; 
+  f0:	80 91 69 00 	lds	r24, 0x0069
+  f4:	8f 5f       	subi	r24, 0xFF	; 255
+  f6:	80 93 69 00 	sts	0x0069, r24
+  fa:	08 95       	ret
+
+000000fc <__vector_10>:
+}
+
+// In our approach, the C programmer does not touch this ISR, but rather TimerISR()
+ISR(TIMER0_COMP_vect)
+{
+  fc:	1f 92       	push	r1
+  fe:	0f 92       	push	r0
+ 100:	0f b6       	in	r0, 0x3f	; 63
+ 102:	0f 92       	push	r0
+ 104:	11 24       	eor	r1, r1
+ 106:	2f 93       	push	r18
+ 108:	3f 93       	push	r19
+ 10a:	4f 93       	push	r20
+ 10c:	5f 93       	push	r21
+ 10e:	6f 93       	push	r22
+ 110:	7f 93       	push	r23
+ 112:	8f 93       	push	r24
+ 114:	9f 93       	push	r25
+ 116:	af 93       	push	r26
+ 118:	bf 93       	push	r27
+ 11a:	ef 93       	push	r30
+ 11c:	ff 93       	push	r31
+	// CPU automatically calls when TCNT0 == OCR0 (every 1 ms per TimerOn settings)
+	_avr_timer_cntcurr--; 			// Count down to 0 rather than up to TOP
+ 11e:	80 91 64 00 	lds	r24, 0x0064
+ 122:	90 91 65 00 	lds	r25, 0x0065
+ 126:	a0 91 66 00 	lds	r26, 0x0066
+ 12a:	b0 91 67 00 	lds	r27, 0x0067
+ 12e:	01 97       	sbiw	r24, 0x01	; 1
+ 130:	a1 09       	sbc	r26, r1
+ 132:	b1 09       	sbc	r27, r1
+ 134:	80 93 64 00 	sts	0x0064, r24
+ 138:	90 93 65 00 	sts	0x0065, r25
+ 13c:	a0 93 66 00 	sts	0x0066, r26
+ 140:	b0 93 67 00 	sts	0x0067, r27
+	if (_avr_timer_cntcurr == 0)
+ 144:	89 2b       	or	r24, r25
+ 146:	8a 2b       	or	r24, r26
+ 148:	8b 2b       	or	r24, r27
+ 14a:	91 f4       	brne	.+36     	; 0x170 <__vector_10+0x74>
+	{ 	// results in a more efficient compare
+		TimerISR(); 				// Call the ISR that the user uses
+ 14c:	0e 94 75 00 	call	0xea	; 0xea <TimerISR>
+		_avr_timer_cntcurr = _avr_timer_M;
+ 150:	80 91 60 00 	lds	r24, 0x0060
+ 154:	90 91 61 00 	lds	r25, 0x0061
+ 158:	a0 91 62 00 	lds	r26, 0x0062
+ 15c:	b0 91 63 00 	lds	r27, 0x0063
+ 160:	80 93 64 00 	sts	0x0064, r24
+ 164:	90 93 65 00 	sts	0x0065, r25
+ 168:	a0 93 66 00 	sts	0x0066, r26
+ 16c:	b0 93 67 00 	sts	0x0067, r27
+	}
+}
+ 170:	ff 91       	pop	r31
+ 172:	ef 91       	pop	r30
+ 174:	bf 91       	pop	r27
+ 176:	af 91       	pop	r26
+ 178:	9f 91       	pop	r25
+ 17a:	8f 91       	pop	r24
+ 17c:	7f 91       	pop	r23
+ 17e:	6f 91       	pop	r22
+ 180:	5f 91       	pop	r21
+ 182:	4f 91       	pop	r20
+ 184:	3f 91       	pop	r19
+ 186:	2f 91       	pop	r18
+ 188:	0f 90       	pop	r0
+ 18a:	0f be       	out	0x3f, r0	; 63
+ 18c:	0f 90       	pop	r0
+ 18e:	1f 90       	pop	r1
+ 190:	18 95       	reti
+
+00000192 <LED_tick>:
+	DDRA = 0xFF; // PA0 is an input
+	LED_State = -1;
+}
+
+void LED_tick() {
+	switch (LED_State){
+ 192:	80 91 77 00 	lds	r24, 0x0077
+ 196:	86 30       	cpi	r24, 0x06	; 6
+ 198:	09 f4       	brne	.+2      	; 0x19c <LED_tick+0xa>
+ 19a:	76 c0       	rjmp	.+236    	; 0x288 <LED_tick+0xf6>
+ 19c:	78 f4       	brcc	.+30     	; 0x1bc <LED_tick+0x2a>
+ 19e:	82 30       	cpi	r24, 0x02	; 2
+ 1a0:	d9 f1       	breq	.+118    	; 0x218 <LED_tick+0x86>
+ 1a2:	30 f4       	brcc	.+12     	; 0x1b0 <LED_tick+0x1e>
+ 1a4:	88 23       	and	r24, r24
+ 1a6:	e9 f0       	breq	.+58     	; 0x1e2 <LED_tick+0x50>
+ 1a8:	81 30       	cpi	r24, 0x01	; 1
+ 1aa:	09 f0       	breq	.+2      	; 0x1ae <LED_tick+0x1c>
+ 1ac:	d2 c0       	rjmp	.+420    	; 0x352 <LED_tick+0x1c0>
+ 1ae:	26 c0       	rjmp	.+76     	; 0x1fc <LED_tick+0x6a>
+ 1b0:	84 30       	cpi	r24, 0x04	; 4
+ 1b2:	09 f4       	brne	.+2      	; 0x1b6 <LED_tick+0x24>
+ 1b4:	4d c0       	rjmp	.+154    	; 0x250 <LED_tick+0xbe>
+ 1b6:	08 f0       	brcs	.+2      	; 0x1ba <LED_tick+0x28>
+ 1b8:	59 c0       	rjmp	.+178    	; 0x26c <LED_tick+0xda>
+ 1ba:	3c c0       	rjmp	.+120    	; 0x234 <LED_tick+0xa2>
+ 1bc:	8a 30       	cpi	r24, 0x0A	; 10
+ 1be:	09 f4       	brne	.+2      	; 0x1c2 <LED_tick+0x30>
+ 1c0:	9b c0       	rjmp	.+310    	; 0x2f8 <LED_tick+0x166>
+ 1c2:	30 f4       	brcc	.+12     	; 0x1d0 <LED_tick+0x3e>
+ 1c4:	88 30       	cpi	r24, 0x08	; 8
+ 1c6:	09 f4       	brne	.+2      	; 0x1ca <LED_tick+0x38>
+ 1c8:	7b c0       	rjmp	.+246    	; 0x2c0 <LED_tick+0x12e>
+ 1ca:	08 f0       	brcs	.+2      	; 0x1ce <LED_tick+0x3c>
+ 1cc:	87 c0       	rjmp	.+270    	; 0x2dc <LED_tick+0x14a>
+ 1ce:	6a c0       	rjmp	.+212    	; 0x2a4 <LED_tick+0x112>
+ 1d0:	8c 30       	cpi	r24, 0x0C	; 12
+ 1d2:	09 f4       	brne	.+2      	; 0x1d6 <LED_tick+0x44>
+ 1d4:	ad c0       	rjmp	.+346    	; 0x330 <LED_tick+0x19e>
+ 1d6:	08 f4       	brcc	.+2      	; 0x1da <LED_tick+0x48>
+ 1d8:	9d c0       	rjmp	.+314    	; 0x314 <LED_tick+0x182>
+ 1da:	8d 30       	cpi	r24, 0x0D	; 13
+ 1dc:	09 f0       	breq	.+2      	; 0x1e0 <LED_tick+0x4e>
+ 1de:	b9 c0       	rjmp	.+370    	; 0x352 <LED_tick+0x1c0>
+ 1e0:	b5 c0       	rjmp	.+362    	; 0x34c <LED_tick+0x1ba>
+		case -1:
+			LED_State = Noose;
+			break; 
+		case Noose:
+			c_zero = PINC & 0x01; 
+ 1e2:	83 b3       	in	r24, 0x13	; 19
+ 1e4:	81 70       	andi	r24, 0x01	; 1
+ 1e6:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 1ea:	81 11       	cpse	r24, r1
+ 1ec:	04 c0       	rjmp	.+8      	; 0x1f6 <LED_tick+0x64>
+				LED_State = Head;
+ 1ee:	81 e0       	ldi	r24, 0x01	; 1
+ 1f0:	80 93 77 00 	sts	0x0077, r24
+ 1f4:	0a c1       	rjmp	.+532    	; 0x40a <LED_tick+0x278>
+			}
+			else {
+				LED_State = Noose;
+ 1f6:	10 92 77 00 	sts	0x0077, r1
+ 1fa:	0c c1       	rjmp	.+536    	; 0x414 <LED_tick+0x282>
+			}
+			break;
+		case Head:
+			c_zero = PINC & 0x01; 
+ 1fc:	83 b3       	in	r24, 0x13	; 19
+ 1fe:	81 70       	andi	r24, 0x01	; 1
+ 200:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 204:	81 11       	cpse	r24, r1
+ 206:	04 c0       	rjmp	.+8      	; 0x210 <LED_tick+0x7e>
+				LED_State = Upper_torso;
+ 208:	82 e0       	ldi	r24, 0x02	; 2
+ 20a:	80 93 77 00 	sts	0x0077, r24
+ 20e:	f8 c0       	rjmp	.+496    	; 0x400 <LED_tick+0x26e>
+			}
+			else {
+				LED_State = Head;
+ 210:	81 e0       	ldi	r24, 0x01	; 1
+ 212:	80 93 77 00 	sts	0x0077, r24
+ 216:	f9 c0       	rjmp	.+498    	; 0x40a <LED_tick+0x278>
+			}
+			break;
+		case Upper_torso:
+			c_zero = PINC & 0x01; 
+ 218:	83 b3       	in	r24, 0x13	; 19
+ 21a:	81 70       	andi	r24, 0x01	; 1
+ 21c:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 220:	81 11       	cpse	r24, r1
+ 222:	04 c0       	rjmp	.+8      	; 0x22c <LED_tick+0x9a>
+				LED_State = Right_arm;
+ 224:	83 e0       	ldi	r24, 0x03	; 3
+ 226:	80 93 77 00 	sts	0x0077, r24
+ 22a:	e5 c0       	rjmp	.+458    	; 0x3f6 <LED_tick+0x264>
+			}
+			else {
+				LED_State = Upper_torso;
+ 22c:	82 e0       	ldi	r24, 0x02	; 2
+ 22e:	80 93 77 00 	sts	0x0077, r24
+ 232:	e6 c0       	rjmp	.+460    	; 0x400 <LED_tick+0x26e>
+			}
+			break;
+		case Right_arm:
+			c_zero = PINC & 0x01; 
+ 234:	83 b3       	in	r24, 0x13	; 19
+ 236:	81 70       	andi	r24, 0x01	; 1
+ 238:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 23c:	81 11       	cpse	r24, r1
+ 23e:	04 c0       	rjmp	.+8      	; 0x248 <LED_tick+0xb6>
+				LED_State = Left_arm;
+ 240:	84 e0       	ldi	r24, 0x04	; 4
+ 242:	80 93 77 00 	sts	0x0077, r24
+ 246:	d2 c0       	rjmp	.+420    	; 0x3ec <LED_tick+0x25a>
+			}
+			else {
+				LED_State = Right_arm;
+ 248:	83 e0       	ldi	r24, 0x03	; 3
+ 24a:	80 93 77 00 	sts	0x0077, r24
+ 24e:	d3 c0       	rjmp	.+422    	; 0x3f6 <LED_tick+0x264>
+			}
+			break;
+		case Left_arm:
+			c_zero = PINC & 0x01; 
+ 250:	83 b3       	in	r24, 0x13	; 19
+ 252:	81 70       	andi	r24, 0x01	; 1
+ 254:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 258:	81 11       	cpse	r24, r1
+ 25a:	04 c0       	rjmp	.+8      	; 0x264 <LED_tick+0xd2>
+				LED_State = Right_Hand;
+ 25c:	85 e0       	ldi	r24, 0x05	; 5
+ 25e:	80 93 77 00 	sts	0x0077, r24
+ 262:	bf c0       	rjmp	.+382    	; 0x3e2 <LED_tick+0x250>
+			}
+			else {
+				LED_State = Left_arm;
+ 264:	84 e0       	ldi	r24, 0x04	; 4
+ 266:	80 93 77 00 	sts	0x0077, r24
+ 26a:	c0 c0       	rjmp	.+384    	; 0x3ec <LED_tick+0x25a>
+			}
+			break;
+		case Right_Hand:
+			c_zero = PINC & 0x01; 
+ 26c:	83 b3       	in	r24, 0x13	; 19
+ 26e:	81 70       	andi	r24, 0x01	; 1
+ 270:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 274:	81 11       	cpse	r24, r1
+ 276:	04 c0       	rjmp	.+8      	; 0x280 <LED_tick+0xee>
+				LED_State = Left_hand;
+ 278:	86 e0       	ldi	r24, 0x06	; 6
+ 27a:	80 93 77 00 	sts	0x0077, r24
+ 27e:	ac c0       	rjmp	.+344    	; 0x3d8 <LED_tick+0x246>
+			}
+			else {
+				LED_State = Right_Hand;
+ 280:	85 e0       	ldi	r24, 0x05	; 5
+ 282:	80 93 77 00 	sts	0x0077, r24
+ 286:	ad c0       	rjmp	.+346    	; 0x3e2 <LED_tick+0x250>
+			}
+			break;
+		case Left_hand:
+			c_zero = PINC & 0x01; 
+ 288:	83 b3       	in	r24, 0x13	; 19
+ 28a:	81 70       	andi	r24, 0x01	; 1
+ 28c:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 290:	81 11       	cpse	r24, r1
+ 292:	04 c0       	rjmp	.+8      	; 0x29c <LED_tick+0x10a>
+				LED_State = Middle_Torso;
+ 294:	87 e0       	ldi	r24, 0x07	; 7
+ 296:	80 93 77 00 	sts	0x0077, r24
+ 29a:	99 c0       	rjmp	.+306    	; 0x3ce <LED_tick+0x23c>
+			}
+			else {
+				LED_State = Left_hand;
+ 29c:	86 e0       	ldi	r24, 0x06	; 6
+ 29e:	80 93 77 00 	sts	0x0077, r24
+ 2a2:	9a c0       	rjmp	.+308    	; 0x3d8 <LED_tick+0x246>
+			}
+			break;
+		case Middle_Torso:
+			c_zero = PINC & 0x01; 
+ 2a4:	83 b3       	in	r24, 0x13	; 19
+ 2a6:	81 70       	andi	r24, 0x01	; 1
+ 2a8:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 2ac:	81 11       	cpse	r24, r1
+ 2ae:	04 c0       	rjmp	.+8      	; 0x2b8 <LED_tick+0x126>
+				LED_State = Lower_Torso;
+ 2b0:	88 e0       	ldi	r24, 0x08	; 8
+ 2b2:	80 93 77 00 	sts	0x0077, r24
+ 2b6:	86 c0       	rjmp	.+268    	; 0x3c4 <LED_tick+0x232>
+			}
+			else {
+				LED_State = Middle_Torso;
+ 2b8:	87 e0       	ldi	r24, 0x07	; 7
+ 2ba:	80 93 77 00 	sts	0x0077, r24
+ 2be:	87 c0       	rjmp	.+270    	; 0x3ce <LED_tick+0x23c>
+			}
+			break;
+		case Lower_Torso:
+			c_zero = PINC & 0x01; 
+ 2c0:	83 b3       	in	r24, 0x13	; 19
+ 2c2:	81 70       	andi	r24, 0x01	; 1
+ 2c4:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 2c8:	81 11       	cpse	r24, r1
+ 2ca:	04 c0       	rjmp	.+8      	; 0x2d4 <LED_tick+0x142>
+				LED_State = Right_leg;
+ 2cc:	89 e0       	ldi	r24, 0x09	; 9
+ 2ce:	80 93 77 00 	sts	0x0077, r24
+ 2d2:	73 c0       	rjmp	.+230    	; 0x3ba <LED_tick+0x228>
+			}
+			else {
+				LED_State = Lower_Torso;
+ 2d4:	88 e0       	ldi	r24, 0x08	; 8
+ 2d6:	80 93 77 00 	sts	0x0077, r24
+ 2da:	74 c0       	rjmp	.+232    	; 0x3c4 <LED_tick+0x232>
+			}
+			break;
+		case Right_leg:
+			c_zero = PINC & 0x01; 
+ 2dc:	83 b3       	in	r24, 0x13	; 19
+ 2de:	81 70       	andi	r24, 0x01	; 1
+ 2e0:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 2e4:	81 11       	cpse	r24, r1
+ 2e6:	04 c0       	rjmp	.+8      	; 0x2f0 <LED_tick+0x15e>
+				LED_State = Left_leg;
+ 2e8:	8a e0       	ldi	r24, 0x0A	; 10
+ 2ea:	80 93 77 00 	sts	0x0077, r24
+ 2ee:	60 c0       	rjmp	.+192    	; 0x3b0 <LED_tick+0x21e>
+			}
+			else {
+				LED_State = Right_leg;
+ 2f0:	89 e0       	ldi	r24, 0x09	; 9
+ 2f2:	80 93 77 00 	sts	0x0077, r24
+ 2f6:	61 c0       	rjmp	.+194    	; 0x3ba <LED_tick+0x228>
+			}
+			break;
+		case Left_leg:
+			c_zero = PINC & 0x01; 
+ 2f8:	83 b3       	in	r24, 0x13	; 19
+ 2fa:	81 70       	andi	r24, 0x01	; 1
+ 2fc:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 300:	81 11       	cpse	r24, r1
+ 302:	04 c0       	rjmp	.+8      	; 0x30c <LED_tick+0x17a>
+				LED_State = Right_foot;
+ 304:	8b e0       	ldi	r24, 0x0B	; 11
+ 306:	80 93 77 00 	sts	0x0077, r24
+ 30a:	4d c0       	rjmp	.+154    	; 0x3a6 <LED_tick+0x214>
+			}
+			else {
+				LED_State = Left_leg;
+ 30c:	8a e0       	ldi	r24, 0x0A	; 10
+ 30e:	80 93 77 00 	sts	0x0077, r24
+ 312:	4e c0       	rjmp	.+156    	; 0x3b0 <LED_tick+0x21e>
+			}
+			break;
+		case Right_foot:
+			c_zero = PINC & 0x01; 
+ 314:	83 b3       	in	r24, 0x13	; 19
+ 316:	81 70       	andi	r24, 0x01	; 1
+ 318:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 31c:	81 11       	cpse	r24, r1
+ 31e:	04 c0       	rjmp	.+8      	; 0x328 <LED_tick+0x196>
+				LED_State = Left_foot;
+ 320:	8c e0       	ldi	r24, 0x0C	; 12
+ 322:	80 93 77 00 	sts	0x0077, r24
+ 326:	3a c0       	rjmp	.+116    	; 0x39c <LED_tick+0x20a>
+			}
+			else {
+				LED_State = Right_foot;
+ 328:	8b e0       	ldi	r24, 0x0B	; 11
+ 32a:	80 93 77 00 	sts	0x0077, r24
+ 32e:	3b c0       	rjmp	.+118    	; 0x3a6 <LED_tick+0x214>
+			}
+			break;
+		case Left_foot:
+			c_zero = PINC & 0x01; 
+ 330:	83 b3       	in	r24, 0x13	; 19
+ 332:	81 70       	andi	r24, 0x01	; 1
+ 334:	80 93 6b 00 	sts	0x006B, r24
+			if (!c_zero){
+ 338:	81 11       	cpse	r24, r1
+ 33a:	04 c0       	rjmp	.+8      	; 0x344 <LED_tick+0x1b2>
+				LED_State = Lost;
+ 33c:	8d e0       	ldi	r24, 0x0D	; 13
+ 33e:	80 93 77 00 	sts	0x0077, r24
+ 342:	27 c0       	rjmp	.+78     	; 0x392 <LED_tick+0x200>
+			}
+			else {
+				LED_State = Left_foot;
+ 344:	8c e0       	ldi	r24, 0x0C	; 12
+ 346:	80 93 77 00 	sts	0x0077, r24
+ 34a:	28 c0       	rjmp	.+80     	; 0x39c <LED_tick+0x20a>
+			}
+			break;
+		case Lost:
+			LED_State = Noose;
+ 34c:	10 92 77 00 	sts	0x0077, r1
+			break;
+ 350:	61 c0       	rjmp	.+194    	; 0x414 <LED_tick+0x282>
+		default:
+			break;
+	}
+	switch(LED_State){
+ 352:	86 30       	cpi	r24, 0x06	; 6
+ 354:	09 f4       	brne	.+2      	; 0x358 <LED_tick+0x1c6>
+ 356:	40 c0       	rjmp	.+128    	; 0x3d8 <LED_tick+0x246>
+ 358:	78 f4       	brcc	.+30     	; 0x378 <LED_tick+0x1e6>
+ 35a:	82 30       	cpi	r24, 0x02	; 2
+ 35c:	09 f4       	brne	.+2      	; 0x360 <LED_tick+0x1ce>
+ 35e:	50 c0       	rjmp	.+160    	; 0x400 <LED_tick+0x26e>
+ 360:	38 f4       	brcc	.+14     	; 0x370 <LED_tick+0x1de>
+ 362:	88 23       	and	r24, r24
+ 364:	09 f4       	brne	.+2      	; 0x368 <LED_tick+0x1d6>
+ 366:	56 c0       	rjmp	.+172    	; 0x414 <LED_tick+0x282>
+ 368:	81 30       	cpi	r24, 0x01	; 1
+ 36a:	09 f0       	breq	.+2      	; 0x36e <LED_tick+0x1dc>
+ 36c:	74 c2       	rjmp	.+1256   	; 0x856 <LED_tick+0x6c4>
+ 36e:	4d c0       	rjmp	.+154    	; 0x40a <LED_tick+0x278>
+ 370:	84 30       	cpi	r24, 0x04	; 4
+ 372:	e1 f1       	breq	.+120    	; 0x3ec <LED_tick+0x25a>
+ 374:	b0 f5       	brcc	.+108    	; 0x3e2 <LED_tick+0x250>
+ 376:	3f c0       	rjmp	.+126    	; 0x3f6 <LED_tick+0x264>
+ 378:	8a 30       	cpi	r24, 0x0A	; 10
+ 37a:	d1 f0       	breq	.+52     	; 0x3b0 <LED_tick+0x21e>
+ 37c:	20 f4       	brcc	.+8      	; 0x386 <LED_tick+0x1f4>
+ 37e:	88 30       	cpi	r24, 0x08	; 8
+ 380:	09 f1       	breq	.+66     	; 0x3c4 <LED_tick+0x232>
+ 382:	d8 f4       	brcc	.+54     	; 0x3ba <LED_tick+0x228>
+ 384:	24 c0       	rjmp	.+72     	; 0x3ce <LED_tick+0x23c>
+ 386:	8c 30       	cpi	r24, 0x0C	; 12
+ 388:	49 f0       	breq	.+18     	; 0x39c <LED_tick+0x20a>
+ 38a:	68 f0       	brcs	.+26     	; 0x3a6 <LED_tick+0x214>
+ 38c:	8d 30       	cpi	r24, 0x0D	; 13
+ 38e:	09 f0       	breq	.+2      	; 0x392 <LED_tick+0x200>
+ 390:	62 c2       	rjmp	.+1220   	; 0x856 <LED_tick+0x6c4>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 392:	84 e6       	ldi	r24, 0x64	; 100
+ 394:	90 e0       	ldi	r25, 0x00	; 0
+		}
+		break;
+		case Lost:
+			for (int i = 0; i < 100; i++)
+			{
+				PORTA = 0X01;
+ 396:	31 e0       	ldi	r19, 0x01	; 1
+				PORTB = 0X1D;// noose
+ 398:	2d e1       	ldi	r18, 0x1D	; 29
+ 39a:	29 c2       	rjmp	.+1106   	; 0x7ee <LED_tick+0x65c>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 39c:	88 ee       	ldi	r24, 0xE8	; 232
+ 39e:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Left_foot:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3a0:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3a2:	2d e1       	ldi	r18, 0x1D	; 29
+ 3a4:	ef c1       	rjmp	.+990    	; 0x784 <LED_tick+0x5f2>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+			PORTB = 0xFD;//middle torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 3a6:	88 ee       	ldi	r24, 0xE8	; 232
+ 3a8:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Right_foot:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3aa:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3ac:	2d e1       	ldi	r18, 0x1D	; 29
+ 3ae:	b5 c1       	rjmp	.+874    	; 0x71a <LED_tick+0x588>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 3b0:	88 ee       	ldi	r24, 0xE8	; 232
+ 3b2:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Left_leg:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3b4:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3b6:	2d e1       	ldi	r18, 0x1D	; 29
+ 3b8:	83 c1       	rjmp	.+774    	; 0x6c0 <LED_tick+0x52e>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0xF6;//left hand
+		}
+		for (int i = 0; i < 1000; i++)
+ 3ba:	88 ee       	ldi	r24, 0xE8	; 232
+ 3bc:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Right_leg:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3be:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3c0:	2d e1       	ldi	r18, 0x1D	; 29
+ 3c2:	51 c1       	rjmp	.+674    	; 0x666 <LED_tick+0x4d4>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+ 3c4:	88 ee       	ldi	r24, 0xE8	; 232
+ 3c6:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Lower_Torso:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3c8:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3ca:	2d e1       	ldi	r18, 0x1D	; 29
+ 3cc:	0f c1       	rjmp	.+542    	; 0x5ec <LED_tick+0x45a>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 3ce:	88 ee       	ldi	r24, 0xE8	; 232
+ 3d0:	93 e0       	ldi	r25, 0x03	; 3
+		}		
+		break;
+		case Middle_Torso:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3d2:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3d4:	2d e1       	ldi	r18, 0x1D	; 29
+ 3d6:	d5 c0       	rjmp	.+426    	; 0x582 <LED_tick+0x3f0>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 3d8:	88 ee       	ldi	r24, 0xE8	; 232
+ 3da:	93 e0       	ldi	r25, 0x03	; 3
+		
+		break;
+		case Left_hand:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3dc:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3de:	2d e1       	ldi	r18, 0x1D	; 29
+ 3e0:	a3 c0       	rjmp	.+326    	; 0x528 <LED_tick+0x396>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 3e2:	88 ee       	ldi	r24, 0xE8	; 232
+ 3e4:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Right_Hand:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3e6:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3e8:	2d e1       	ldi	r18, 0x1D	; 29
+ 3ea:	79 c0       	rjmp	.+242    	; 0x4de <LED_tick+0x34c>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 3ec:	88 ee       	ldi	r24, 0xE8	; 232
+ 3ee:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Left_arm:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3f0:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3f2:	2d e1       	ldi	r18, 0x1D	; 29
+ 3f4:	57 c0       	rjmp	.+174    	; 0x4a4 <LED_tick+0x312>
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 3f6:	88 ee       	ldi	r24, 0xE8	; 232
+ 3f8:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Right_arm:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 3fa:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 3fc:	2d e1       	ldi	r18, 0x1D	; 29
+ 3fe:	35 c0       	rjmp	.+106    	; 0x46a <LED_tick+0x2d8>
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		break;
+		case Head:
+		for (int i = 0; i < 1000; i++)
+ 400:	88 ee       	ldi	r24, 0xE8	; 232
+ 402:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Upper_torso:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 404:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 406:	2d e1       	ldi	r18, 0x1D	; 29
+ 408:	1b c0       	rjmp	.+54     	; 0x440 <LED_tick+0x2ae>
+	DDRC = 0x00; // Set port D to output
+	DDRA = 0xFF; // PA0 is an input
+	LED_State = -1;
+}
+
+void LED_tick() {
+ 40a:	88 ee       	ldi	r24, 0xE8	; 232
+ 40c:	93 e0       	ldi	r25, 0x03	; 3
+		}
+		break;
+		case Head:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 40e:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 410:	2d e1       	ldi	r18, 0x1D	; 29
+ 412:	09 c0       	rjmp	.+18     	; 0x426 <LED_tick+0x294>
+	DDRC = 0x00; // Set port D to output
+	DDRA = 0xFF; // PA0 is an input
+	LED_State = -1;
+}
+
+void LED_tick() {
+ 414:	88 ee       	ldi	r24, 0xE8	; 232
+ 416:	93 e0       	ldi	r25, 0x03	; 3
+	}
+	switch(LED_State){
+		case Noose:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 418:	31 e0       	ldi	r19, 0x01	; 1
+			PORTB = 0X1D;// noose
+ 41a:	2d e1       	ldi	r18, 0x1D	; 29
+	}
+	switch(LED_State){
+		case Noose:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 41c:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 41e:	28 bb       	out	0x18, r18	; 24
+ 420:	01 97       	sbiw	r24, 0x01	; 1
+		default:
+			break;
+	}
+	switch(LED_State){
+		case Noose:
+		for (int i = 0; i < 1000; i++)
+ 422:	e1 f7       	brne	.-8      	; 0x41c <LED_tick+0x28a>
+ 424:	08 95       	ret
+		}
+		break;
+		case Head:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 426:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 428:	28 bb       	out	0x18, r18	; 24
+ 42a:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		break;
+		case Head:
+		for (int i = 0; i < 1000; i++)
+ 42c:	e1 f7       	brne	.-8      	; 0x426 <LED_tick+0x294>
+ 42e:	88 ee       	ldi	r24, 0xE8	; 232
+ 430:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 432:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0X1D;// head
+ 434:	2d e1       	ldi	r18, 0x1D	; 29
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 436:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// head
+ 438:	28 bb       	out	0x18, r18	; 24
+ 43a:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 43c:	e1 f7       	brne	.-8      	; 0x436 <LED_tick+0x2a4>
+ 43e:	08 95       	ret
+		}
+		break;
+		case Upper_torso:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 440:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 442:	28 bb       	out	0x18, r18	; 24
+ 444:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		break;
+		case Upper_torso:
+		for (int i = 0; i < 1000; i++)
+ 446:	e1 f7       	brne	.-8      	; 0x440 <LED_tick+0x2ae>
+ 448:	88 ee       	ldi	r24, 0xE8	; 232
+ 44a:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 44c:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0X1D;// head
+ 44e:	2d e1       	ldi	r18, 0x1D	; 29
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 450:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// head
+ 452:	28 bb       	out	0x18, r18	; 24
+ 454:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 456:	e1 f7       	brne	.-8      	; 0x450 <LED_tick+0x2be>
+ 458:	88 ee       	ldi	r24, 0xE8	; 232
+ 45a:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 45c:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XFD; //upper torso
+ 45e:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 460:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XFD; //upper torso
+ 462:	28 bb       	out	0x18, r18	; 24
+ 464:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 466:	e1 f7       	brne	.-8      	; 0x460 <LED_tick+0x2ce>
+ 468:	08 95       	ret
+		}
+		break;
+		case Right_arm:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 46a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 46c:	28 bb       	out	0x18, r18	; 24
+ 46e:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		break;
+		case Right_arm:
+		for (int i = 0; i < 1000; i++)
+ 470:	e1 f7       	brne	.-8      	; 0x46a <LED_tick+0x2d8>
+ 472:	88 ee       	ldi	r24, 0xE8	; 232
+ 474:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 476:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0X1D;// head
+ 478:	2d e1       	ldi	r18, 0x1D	; 29
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 47a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// head
+ 47c:	28 bb       	out	0x18, r18	; 24
+ 47e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 480:	e1 f7       	brne	.-8      	; 0x47a <LED_tick+0x2e8>
+ 482:	88 ee       	ldi	r24, 0xE8	; 232
+ 484:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 486:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XFD; //upper torso
+ 488:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 48a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XFD; //upper torso
+ 48c:	28 bb       	out	0x18, r18	; 24
+ 48e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 490:	e1 f7       	brne	.-8      	; 0x48a <LED_tick+0x2f8>
+ 492:	88 ee       	ldi	r24, 0xE8	; 232
+ 494:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 496:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XED; //top of arms
+ 498:	2d ee       	ldi	r18, 0xED	; 237
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 49a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XED; //top of arms
+ 49c:	28 bb       	out	0x18, r18	; 24
+ 49e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 4a0:	e1 f7       	brne	.-8      	; 0x49a <LED_tick+0x308>
+ 4a2:	08 95       	ret
+		}
+		break;
+		case Left_arm:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 4a4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 4a6:	28 bb       	out	0x18, r18	; 24
+ 4a8:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X04;
+			PORTB = 0XED; //top of arms
+		}
+		break;
+		case Left_arm:
+		for (int i = 0; i < 1000; i++)
+ 4aa:	e1 f7       	brne	.-8      	; 0x4a4 <LED_tick+0x312>
+ 4ac:	88 ee       	ldi	r24, 0xE8	; 232
+ 4ae:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 4b0:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0X1D;// head
+ 4b2:	2d e1       	ldi	r18, 0x1D	; 29
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 4b4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// head
+ 4b6:	28 bb       	out	0x18, r18	; 24
+ 4b8:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 4ba:	e1 f7       	brne	.-8      	; 0x4b4 <LED_tick+0x322>
+ 4bc:	88 ee       	ldi	r24, 0xE8	; 232
+ 4be:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 4c0:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XFD; //upper torso
+ 4c2:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 4c4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XFD; //upper torso
+ 4c6:	28 bb       	out	0x18, r18	; 24
+ 4c8:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 4ca:	e1 f7       	brne	.-8      	; 0x4c4 <LED_tick+0x332>
+ 4cc:	88 ee       	ldi	r24, 0xE8	; 232
+ 4ce:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 4d0:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //top of arms
+ 4d2:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 4d4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //top of arms
+ 4d6:	28 bb       	out	0x18, r18	; 24
+ 4d8:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 4da:	e1 f7       	brne	.-8      	; 0x4d4 <LED_tick+0x342>
+ 4dc:	08 95       	ret
+		}
+		break;
+		case Right_Hand:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 4de:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 4e0:	28 bb       	out	0x18, r18	; 24
+ 4e2:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		break;
+		case Right_Hand:
+		for (int i = 0; i < 1000; i++)
+ 4e4:	e1 f7       	brne	.-8      	; 0x4de <LED_tick+0x34c>
+ 4e6:	88 ee       	ldi	r24, 0xE8	; 232
+ 4e8:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 4ea:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0X1D;// head
+ 4ec:	2d e1       	ldi	r18, 0x1D	; 29
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 4ee:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// head
+ 4f0:	28 bb       	out	0x18, r18	; 24
+ 4f2:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 4f4:	e1 f7       	brne	.-8      	; 0x4ee <LED_tick+0x35c>
+ 4f6:	88 ee       	ldi	r24, 0xE8	; 232
+ 4f8:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 4fa:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XFD; //upper torso
+ 4fc:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 4fe:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XFD; //upper torso
+ 500:	28 bb       	out	0x18, r18	; 24
+ 502:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 504:	e1 f7       	brne	.-8      	; 0x4fe <LED_tick+0x36c>
+ 506:	88 ee       	ldi	r24, 0xE8	; 232
+ 508:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 50a:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //top of arms
+ 50c:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 50e:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //top of arms
+ 510:	28 bb       	out	0x18, r18	; 24
+ 512:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 514:	e1 f7       	brne	.-8      	; 0x50e <LED_tick+0x37c>
+ 516:	88 ee       	ldi	r24, 0xE8	; 232
+ 518:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 51a:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0xFE;//right hand
+ 51c:	2e ef       	ldi	r18, 0xFE	; 254
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 51e:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFE;//right hand
+ 520:	28 bb       	out	0x18, r18	; 24
+ 522:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 524:	e1 f7       	brne	.-8      	; 0x51e <LED_tick+0x38c>
+ 526:	08 95       	ret
+		
+		break;
+		case Left_hand:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 528:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 52a:	28 bb       	out	0x18, r18	; 24
+ 52c:	01 97       	sbiw	r24, 0x01	; 1
+			PORTB = 0xFE;//right hand
+		}
+		
+		break;
+		case Left_hand:
+		for (int i = 0; i < 1000; i++)
+ 52e:	e1 f7       	brne	.-8      	; 0x528 <LED_tick+0x396>
+ 530:	88 ee       	ldi	r24, 0xE8	; 232
+ 532:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 534:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0X1D;// head
+ 536:	2d e1       	ldi	r18, 0x1D	; 29
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 538:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// head
+ 53a:	28 bb       	out	0x18, r18	; 24
+ 53c:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 53e:	e1 f7       	brne	.-8      	; 0x538 <LED_tick+0x3a6>
+ 540:	88 ee       	ldi	r24, 0xE8	; 232
+ 542:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 544:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XFD; //upper torso
+ 546:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 548:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XFD; //upper torso
+ 54a:	28 bb       	out	0x18, r18	; 24
+ 54c:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 54e:	e1 f7       	brne	.-8      	; 0x548 <LED_tick+0x3b6>
+ 550:	88 ee       	ldi	r24, 0xE8	; 232
+ 552:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 554:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //top of arms
+ 556:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 558:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //top of arms
+ 55a:	28 bb       	out	0x18, r18	; 24
+ 55c:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 55e:	e1 f7       	brne	.-8      	; 0x558 <LED_tick+0x3c6>
+ 560:	88 ee       	ldi	r24, 0xE8	; 232
+ 562:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 564:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0xFE;//right hand
+ 566:	2e ef       	ldi	r18, 0xFE	; 254
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 568:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFE;//right hand
+ 56a:	28 bb       	out	0x18, r18	; 24
+ 56c:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 56e:	e1 f7       	brne	.-8      	; 0x568 <LED_tick+0x3d6>
+ 570:	88 ee       	ldi	r24, 0xE8	; 232
+ 572:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 574:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0xF6;//left hand
+ 576:	26 ef       	ldi	r18, 0xF6	; 246
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 578:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xF6;//left hand
+ 57a:	28 bb       	out	0x18, r18	; 24
+ 57c:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+ 57e:	e1 f7       	brne	.-8      	; 0x578 <LED_tick+0x3e6>
+ 580:	08 95       	ret
+		}		
+		break;
+		case Middle_Torso:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 582:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 584:	28 bb       	out	0x18, r18	; 24
+ 586:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X02;
+			PORTB = 0xF6;//left hand
+		}		
+		break;
+		case Middle_Torso:
+		for (int i = 0; i < 1000; i++)
+ 588:	e1 f7       	brne	.-8      	; 0x582 <LED_tick+0x3f0>
+ 58a:	88 ee       	ldi	r24, 0xE8	; 232
+ 58c:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 58e:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0X1D;// head
+ 590:	2d e1       	ldi	r18, 0x1D	; 29
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 592:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// head
+ 594:	28 bb       	out	0x18, r18	; 24
+ 596:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 598:	e1 f7       	brne	.-8      	; 0x592 <LED_tick+0x400>
+ 59a:	88 ee       	ldi	r24, 0xE8	; 232
+ 59c:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 59e:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XFD; //upper torso
+ 5a0:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 5a2:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XFD; //upper torso
+ 5a4:	28 bb       	out	0x18, r18	; 24
+ 5a6:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 5a8:	e1 f7       	brne	.-8      	; 0x5a2 <LED_tick+0x410>
+ 5aa:	88 ee       	ldi	r24, 0xE8	; 232
+ 5ac:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 5ae:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //top of arms
+ 5b0:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 5b2:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //top of arms
+ 5b4:	28 bb       	out	0x18, r18	; 24
+ 5b6:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 5b8:	e1 f7       	brne	.-8      	; 0x5b2 <LED_tick+0x420>
+ 5ba:	88 ee       	ldi	r24, 0xE8	; 232
+ 5bc:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 5be:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0xFE;//right hand
+ 5c0:	2e ef       	ldi	r18, 0xFE	; 254
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 5c2:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFE;//right hand
+ 5c4:	28 bb       	out	0x18, r18	; 24
+ 5c6:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 5c8:	e1 f7       	brne	.-8      	; 0x5c2 <LED_tick+0x430>
+ 5ca:	88 ee       	ldi	r24, 0xE8	; 232
+ 5cc:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 5ce:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0xF6;//left hand
+ 5d0:	26 ef       	ldi	r18, 0xF6	; 246
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 5d2:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xF6;//left hand
+ 5d4:	28 bb       	out	0x18, r18	; 24
+ 5d6:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+ 5d8:	e1 f7       	brne	.-8      	; 0x5d2 <LED_tick+0x440>
+ 5da:	88 ee       	ldi	r24, 0xE8	; 232
+ 5dc:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0xF6;//left hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;
+ 5de:	38 e0       	ldi	r19, 0x08	; 8
+			PORTB = 0xFD;//middle torso
+ 5e0:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0xF6;//left hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;
+ 5e2:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//middle torso
+ 5e4:	28 bb       	out	0x18, r18	; 24
+ 5e6:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0xF6;//left hand
+		}
+		for (int i = 0; i < 1000; i++)
+ 5e8:	e1 f7       	brne	.-8      	; 0x5e2 <LED_tick+0x450>
+ 5ea:	08 95       	ret
+		}
+		break;
+		case Lower_Torso:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 5ec:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 5ee:	28 bb       	out	0x18, r18	; 24
+ 5f0:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X08;
+			PORTB = 0xFD;//middle torso
+		}
+		break;
+		case Lower_Torso:
+		for (int i = 0; i < 1000; i++)
+ 5f2:	e1 f7       	brne	.-8      	; 0x5ec <LED_tick+0x45a>
+ 5f4:	88 ee       	ldi	r24, 0xE8	; 232
+ 5f6:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 5f8:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0X1D;// head
+ 5fa:	2d e1       	ldi	r18, 0x1D	; 29
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 5fc:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// head
+ 5fe:	28 bb       	out	0x18, r18	; 24
+ 600:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 602:	e1 f7       	brne	.-8      	; 0x5fc <LED_tick+0x46a>
+ 604:	88 ee       	ldi	r24, 0xE8	; 232
+ 606:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 608:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XFD; //upper torso
+ 60a:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 60c:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XFD; //upper torso
+ 60e:	28 bb       	out	0x18, r18	; 24
+ 610:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0X1D;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 612:	e1 f7       	brne	.-8      	; 0x60c <LED_tick+0x47a>
+ 614:	88 ee       	ldi	r24, 0xE8	; 232
+ 616:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 618:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //top of arms
+ 61a:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 61c:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //top of arms
+ 61e:	28 bb       	out	0x18, r18	; 24
+ 620:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XFD; //upper torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 622:	e1 f7       	brne	.-8      	; 0x61c <LED_tick+0x48a>
+ 624:	88 ee       	ldi	r24, 0xE8	; 232
+ 626:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 628:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0xFE;//right hand
+ 62a:	2e ef       	ldi	r18, 0xFE	; 254
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 62c:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFE;//right hand
+ 62e:	28 bb       	out	0x18, r18	; 24
+ 630:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //top of arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 632:	e1 f7       	brne	.-8      	; 0x62c <LED_tick+0x49a>
+ 634:	88 ee       	ldi	r24, 0xE8	; 232
+ 636:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 638:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0xF6;//left hand
+ 63a:	26 ef       	ldi	r18, 0xF6	; 246
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 63c:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xF6;//left hand
+ 63e:	28 bb       	out	0x18, r18	; 24
+ 640:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0xFE;//right hand
+		}
+		for (int i = 0; i < 1000; i++)
+ 642:	e1 f7       	brne	.-8      	; 0x63c <LED_tick+0x4aa>
+ 644:	88 ee       	ldi	r24, 0xE8	; 232
+ 646:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0xF6;//left hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;
+ 648:	38 e0       	ldi	r19, 0x08	; 8
+			PORTB = 0xFD;//middle torso
+ 64a:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X02;
+			PORTB = 0xF6;//left hand
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;
+ 64c:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//middle torso
+ 64e:	28 bb       	out	0x18, r18	; 24
+ 650:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0xF6;//left hand
+		}
+		for (int i = 0; i < 1000; i++)
+ 652:	e1 f7       	brne	.-8      	; 0x64c <LED_tick+0x4ba>
+ 654:	88 ee       	ldi	r24, 0xE8	; 232
+ 656:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X08;
+			PORTB = 0xFD;//middle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 658:	30 e1       	ldi	r19, 0x10	; 16
+			PORTB = 0xFD;//lower torso
+ 65a:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X08;
+			PORTB = 0xFD;//middle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 65c:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//lower torso
+ 65e:	28 bb       	out	0x18, r18	; 24
+ 660:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;
+			PORTB = 0xFD;//middle torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 662:	e1 f7       	brne	.-8      	; 0x65c <LED_tick+0x4ca>
+ 664:	08 95       	ret
+		}
+		break;
+		case Right_leg:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 666:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 668:	28 bb       	out	0x18, r18	; 24
+ 66a:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		break;
+		case Right_leg:
+		for (int i = 0; i < 1000; i++)
+ 66c:	e1 f7       	brne	.-8      	; 0x666 <LED_tick+0x4d4>
+ 66e:	88 ee       	ldi	r24, 0xE8	; 232
+ 670:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 672:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0XF4;// head
+ 674:	24 ef       	ldi	r18, 0xF4	; 244
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 676:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XF4;// head
+ 678:	28 bb       	out	0x18, r18	; 24
+ 67a:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 67c:	e1 f7       	brne	.-8      	; 0x676 <LED_tick+0x4e4>
+ 67e:	88 ee       	ldi	r24, 0xE8	; 232
+ 680:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 682:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //Upper Torso and Arms
+ 684:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 686:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //Upper Torso and Arms
+ 688:	28 bb       	out	0x18, r18	; 24
+ 68a:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 68c:	e1 f7       	brne	.-8      	; 0x686 <LED_tick+0x4f4>
+ 68e:	88 ee       	ldi	r24, 0xE8	; 232
+ 690:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+ 692:	38 e0       	ldi	r19, 0x08	; 8
+			PORTB = 0xFD;//Dmiddle torso
+ 694:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+ 696:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//Dmiddle torso
+ 698:	28 bb       	out	0x18, r18	; 24
+ 69a:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 69c:	e1 f7       	brne	.-8      	; 0x696 <LED_tick+0x504>
+ 69e:	88 ee       	ldi	r24, 0xE8	; 232
+ 6a0:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 6a2:	30 e1       	ldi	r19, 0x10	; 16
+			PORTB = 0xFD;//lower torso
+ 6a4:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 6a6:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//lower torso
+ 6a8:	28 bb       	out	0x18, r18	; 24
+ 6aa:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 6ac:	e1 f7       	brne	.-8      	; 0x6a6 <LED_tick+0x514>
+ 6ae:	88 ee       	ldi	r24, 0xE8	; 232
+ 6b0:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+ 6b2:	30 e2       	ldi	r19, 0x20	; 32
+			PORTB = 0xEF; // upper leg
+ 6b4:	2f ee       	ldi	r18, 0xEF	; 239
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+ 6b6:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xEF; // upper leg
+ 6b8:	28 bb       	out	0x18, r18	; 24
+ 6ba:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 6bc:	e1 f7       	brne	.-8      	; 0x6b6 <LED_tick+0x524>
+ 6be:	08 95       	ret
+		}
+		break;
+		case Left_leg:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 6c0:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 6c2:	28 bb       	out	0x18, r18	; 24
+ 6c4:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X20;
+			PORTB = 0xEF; // upper leg
+		}
+		break;
+		case Left_leg:
+		for (int i = 0; i < 1000; i++)
+ 6c6:	e1 f7       	brne	.-8      	; 0x6c0 <LED_tick+0x52e>
+ 6c8:	88 ee       	ldi	r24, 0xE8	; 232
+ 6ca:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 6cc:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0XF4;// head
+ 6ce:	24 ef       	ldi	r18, 0xF4	; 244
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 6d0:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XF4;// head
+ 6d2:	28 bb       	out	0x18, r18	; 24
+ 6d4:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 6d6:	e1 f7       	brne	.-8      	; 0x6d0 <LED_tick+0x53e>
+ 6d8:	88 ee       	ldi	r24, 0xE8	; 232
+ 6da:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 6dc:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //Upper Torso and Arms
+ 6de:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 6e0:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //Upper Torso and Arms
+ 6e2:	28 bb       	out	0x18, r18	; 24
+ 6e4:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 6e6:	e1 f7       	brne	.-8      	; 0x6e0 <LED_tick+0x54e>
+ 6e8:	88 ee       	ldi	r24, 0xE8	; 232
+ 6ea:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+ 6ec:	38 e0       	ldi	r19, 0x08	; 8
+			PORTB = 0xFD;//middle torso
+ 6ee:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+ 6f0:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//middle torso
+ 6f2:	28 bb       	out	0x18, r18	; 24
+ 6f4:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 6f6:	e1 f7       	brne	.-8      	; 0x6f0 <LED_tick+0x55e>
+ 6f8:	88 ee       	ldi	r24, 0xE8	; 232
+ 6fa:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X08;//
+			PORTB = 0xFD;//middle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 6fc:	30 e1       	ldi	r19, 0x10	; 16
+			PORTB = 0xFD;//lower torso
+ 6fe:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X08;//
+			PORTB = 0xFD;//middle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 700:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//lower torso
+ 702:	28 bb       	out	0x18, r18	; 24
+ 704:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+			PORTB = 0xFD;//middle torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 706:	e1 f7       	brne	.-8      	; 0x700 <LED_tick+0x56e>
+ 708:	88 ee       	ldi	r24, 0xE8	; 232
+ 70a:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+ 70c:	30 e2       	ldi	r19, 0x20	; 32
+			PORTB = 0xEB; // upper leg
+ 70e:	2b ee       	ldi	r18, 0xEB	; 235
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+ 710:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xEB; // upper leg
+ 712:	28 bb       	out	0x18, r18	; 24
+ 714:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 716:	e1 f7       	brne	.-8      	; 0x710 <LED_tick+0x57e>
+ 718:	08 95       	ret
+		}
+		break;
+		case Right_foot:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 71a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 71c:	28 bb       	out	0x18, r18	; 24
+ 71e:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X20;
+			PORTB = 0xEB; // upper leg
+		}
+		break;
+		case Right_foot:
+		for (int i = 0; i < 1000; i++)
+ 720:	e1 f7       	brne	.-8      	; 0x71a <LED_tick+0x588>
+ 722:	88 ee       	ldi	r24, 0xE8	; 232
+ 724:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 726:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0XF4;// head
+ 728:	24 ef       	ldi	r18, 0xF4	; 244
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 72a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XF4;// head
+ 72c:	28 bb       	out	0x18, r18	; 24
+ 72e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 730:	e1 f7       	brne	.-8      	; 0x72a <LED_tick+0x598>
+ 732:	88 ee       	ldi	r24, 0xE8	; 232
+ 734:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 736:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //Upper Torso and Arms
+ 738:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 73a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //Upper Torso and Arms
+ 73c:	28 bb       	out	0x18, r18	; 24
+ 73e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 740:	e1 f7       	brne	.-8      	; 0x73a <LED_tick+0x5a8>
+ 742:	88 ee       	ldi	r24, 0xE8	; 232
+ 744:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+ 746:	38 e0       	ldi	r19, 0x08	; 8
+			PORTB = 0xFD;//Dmiddle torso
+ 748:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+ 74a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//Dmiddle torso
+ 74c:	28 bb       	out	0x18, r18	; 24
+ 74e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 750:	e1 f7       	brne	.-8      	; 0x74a <LED_tick+0x5b8>
+ 752:	88 ee       	ldi	r24, 0xE8	; 232
+ 754:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 756:	30 e1       	ldi	r19, 0x10	; 16
+			PORTB = 0xFD;//lower torso
+ 758:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 75a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//lower torso
+ 75c:	28 bb       	out	0x18, r18	; 24
+ 75e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 760:	e1 f7       	brne	.-8      	; 0x75a <LED_tick+0x5c8>
+ 762:	88 ee       	ldi	r24, 0xE8	; 232
+ 764:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+ 766:	30 e2       	ldi	r19, 0x20	; 32
+			PORTB = 0xEB; // upper leg
+ 768:	2b ee       	ldi	r18, 0xEB	; 235
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+ 76a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xEB; // upper leg
+ 76c:	28 bb       	out	0x18, r18	; 24
+ 76e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 770:	e1 f7       	brne	.-8      	; 0x76a <LED_tick+0x5d8>
+ 772:	88 ee       	ldi	r24, 0xE8	; 232
+ 774:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X20;
+			PORTB = 0xEB; // upper leg
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X40;
+ 776:	30 e4       	ldi	r19, 0x40	; 64
+			PORTB = 0xF7; // lower leg
+ 778:	27 ef       	ldi	r18, 0xF7	; 247
+			PORTA = 0X20;
+			PORTB = 0xEB; // upper leg
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X40;
+ 77a:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xF7; // lower leg
+ 77c:	28 bb       	out	0x18, r18	; 24
+ 77e:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+			PORTB = 0xEB; // upper leg
+		}
+		for (int i = 0; i < 1000; i++)
+ 780:	e1 f7       	brne	.-8      	; 0x77a <LED_tick+0x5e8>
+ 782:	08 95       	ret
+		}
+		break;
+		case Left_foot:
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+ 784:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0X1D;// noose
+ 786:	28 bb       	out	0x18, r18	; 24
+ 788:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X40;
+			PORTB = 0xF7; // lower leg
+		}
+		break;
+		case Left_foot:
+		for (int i = 0; i < 1000; i++)
+ 78a:	e1 f7       	brne	.-8      	; 0x784 <LED_tick+0x5f2>
+ 78c:	88 ee       	ldi	r24, 0xE8	; 232
+ 78e:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 790:	32 e0       	ldi	r19, 0x02	; 2
+			PORTB = 0XF4;// head
+ 792:	24 ef       	ldi	r18, 0xF4	; 244
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+ 794:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XF4;// head
+ 796:	28 bb       	out	0x18, r18	; 24
+ 798:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X01;
+			PORTB = 0X1D;// noose
+		}
+		for (int i = 0; i < 1000; i++)
+ 79a:	e1 f7       	brne	.-8      	; 0x794 <LED_tick+0x602>
+ 79c:	88 ee       	ldi	r24, 0xE8	; 232
+ 79e:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 7a0:	34 e0       	ldi	r19, 0x04	; 4
+			PORTB = 0XE9; //Upper Torso and Arms
+ 7a2:	29 ee       	ldi	r18, 0xE9	; 233
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+ 7a4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0XE9; //Upper Torso and Arms
+ 7a6:	28 bb       	out	0x18, r18	; 24
+ 7a8:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X02;
+			PORTB = 0XF4;// head
+		}
+		for (int i = 0; i < 1000; i++)
+ 7aa:	e1 f7       	brne	.-8      	; 0x7a4 <LED_tick+0x612>
+ 7ac:	88 ee       	ldi	r24, 0xE8	; 232
+ 7ae:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+ 7b0:	38 e0       	ldi	r19, 0x08	; 8
+			PORTB = 0xFD;//Dmiddle torso
+ 7b2:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+ 7b4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//Dmiddle torso
+ 7b6:	28 bb       	out	0x18, r18	; 24
+ 7b8:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X04;
+			PORTB = 0XE9; //Upper Torso and Arms
+		}
+		for (int i = 0; i < 1000; i++)
+ 7ba:	e1 f7       	brne	.-8      	; 0x7b4 <LED_tick+0x622>
+ 7bc:	88 ee       	ldi	r24, 0xE8	; 232
+ 7be:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 7c0:	30 e1       	ldi	r19, 0x10	; 16
+			PORTB = 0xFD;//lower torso
+ 7c2:	2d ef       	ldi	r18, 0xFD	; 253
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+ 7c4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xFD;//lower torso
+ 7c6:	28 bb       	out	0x18, r18	; 24
+ 7c8:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X08;//
+			PORTB = 0xFD;//Dmiddle torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 7ca:	e1 f7       	brne	.-8      	; 0x7c4 <LED_tick+0x632>
+ 7cc:	88 ee       	ldi	r24, 0xE8	; 232
+ 7ce:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+ 7d0:	30 e2       	ldi	r19, 0x20	; 32
+			PORTB = 0xEB; // upper leg
+ 7d2:	2b ee       	ldi	r18, 0xEB	; 235
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+ 7d4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xEB; // upper leg
+ 7d6:	28 bb       	out	0x18, r18	; 24
+ 7d8:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X10;
+			PORTB = 0xFD;//lower torso
+		}
+		for (int i = 0; i < 1000; i++)
+ 7da:	e1 f7       	brne	.-8      	; 0x7d4 <LED_tick+0x642>
+ 7dc:	88 ee       	ldi	r24, 0xE8	; 232
+ 7de:	93 e0       	ldi	r25, 0x03	; 3
+			PORTA = 0X20;
+			PORTB = 0xEB; // upper leg
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X40;
+ 7e0:	30 e4       	ldi	r19, 0x40	; 64
+			PORTB = 0xF6; // lower leg
+ 7e2:	26 ef       	ldi	r18, 0xF6	; 246
+			PORTA = 0X20;
+			PORTB = 0xEB; // upper leg
+		}
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X40;
+ 7e4:	3b bb       	out	0x1b, r19	; 27
+			PORTB = 0xF6; // lower leg
+ 7e6:	28 bb       	out	0x18, r18	; 24
+ 7e8:	01 97       	sbiw	r24, 0x01	; 1
+		for (int i = 0; i < 1000; i++)
+		{
+			PORTA = 0X20;
+			PORTB = 0xEB; // upper leg
+		}
+		for (int i = 0; i < 1000; i++)
+ 7ea:	e1 f7       	brne	.-8      	; 0x7e4 <LED_tick+0x652>
+ 7ec:	08 95       	ret
+		}
+		break;
+		case Lost:
+			for (int i = 0; i < 100; i++)
+			{
+				PORTA = 0X01;
+ 7ee:	3b bb       	out	0x1b, r19	; 27
+				PORTB = 0X1D;// noose
+ 7f0:	28 bb       	out	0x18, r18	; 24
+ 7f2:	01 97       	sbiw	r24, 0x01	; 1
+			PORTA = 0X40;
+			PORTB = 0xF6; // lower leg
+		}
+		break;
+		case Lost:
+			for (int i = 0; i < 100; i++)
+ 7f4:	e1 f7       	brne	.-8      	; 0x7ee <LED_tick+0x65c>
+ 7f6:	88 ee       	ldi	r24, 0xE8	; 232
+ 7f8:	93 e0       	ldi	r25, 0x03	; 3
+				PORTA = 0X01;
+				PORTB = 0X1D;// noose
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X02;
+ 7fa:	32 e0       	ldi	r19, 0x02	; 2
+				PORTB = 0XF4;// head
+ 7fc:	24 ef       	ldi	r18, 0xF4	; 244
+				PORTA = 0X01;
+				PORTB = 0X1D;// noose
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X02;
+ 7fe:	3b bb       	out	0x1b, r19	; 27
+				PORTB = 0XF4;// head
+ 800:	28 bb       	out	0x18, r18	; 24
+ 802:	01 97       	sbiw	r24, 0x01	; 1
+			for (int i = 0; i < 100; i++)
+			{
+				PORTA = 0X01;
+				PORTB = 0X1D;// noose
+			}
+			for (int i = 0; i < 1000; i++)
+ 804:	e1 f7       	brne	.-8      	; 0x7fe <LED_tick+0x66c>
+ 806:	88 ee       	ldi	r24, 0xE8	; 232
+ 808:	93 e0       	ldi	r25, 0x03	; 3
+				PORTA = 0X02;
+				PORTB = 0XF4;// head
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X04;
+ 80a:	34 e0       	ldi	r19, 0x04	; 4
+				PORTB = 0XE9; //Upper Torso and Arms
+ 80c:	29 ee       	ldi	r18, 0xE9	; 233
+				PORTA = 0X02;
+				PORTB = 0XF4;// head
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X04;
+ 80e:	3b bb       	out	0x1b, r19	; 27
+				PORTB = 0XE9; //Upper Torso and Arms
+ 810:	28 bb       	out	0x18, r18	; 24
+ 812:	01 97       	sbiw	r24, 0x01	; 1
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X02;
+				PORTB = 0XF4;// head
+			}
+			for (int i = 0; i < 1000; i++)
+ 814:	e1 f7       	brne	.-8      	; 0x80e <LED_tick+0x67c>
+ 816:	88 ee       	ldi	r24, 0xE8	; 232
+ 818:	93 e0       	ldi	r25, 0x03	; 3
+				PORTA = 0X04;
+				PORTB = 0XE9; //Upper Torso and Arms
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X08;//
+ 81a:	38 e0       	ldi	r19, 0x08	; 8
+				PORTB = 0xFD;//Dmiddle torso
+ 81c:	2d ef       	ldi	r18, 0xFD	; 253
+				PORTA = 0X04;
+				PORTB = 0XE9; //Upper Torso and Arms
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X08;//
+ 81e:	3b bb       	out	0x1b, r19	; 27
+				PORTB = 0xFD;//Dmiddle torso
+ 820:	28 bb       	out	0x18, r18	; 24
+ 822:	01 97       	sbiw	r24, 0x01	; 1
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X04;
+				PORTB = 0XE9; //Upper Torso and Arms
+			}
+			for (int i = 0; i < 1000; i++)
+ 824:	e1 f7       	brne	.-8      	; 0x81e <LED_tick+0x68c>
+ 826:	88 ee       	ldi	r24, 0xE8	; 232
+ 828:	93 e0       	ldi	r25, 0x03	; 3
+				PORTA = 0X08;//
+				PORTB = 0xFD;//Dmiddle torso
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X10;
+ 82a:	30 e1       	ldi	r19, 0x10	; 16
+				PORTB = 0xFD;//lower torso
+ 82c:	2d ef       	ldi	r18, 0xFD	; 253
+				PORTA = 0X08;//
+				PORTB = 0xFD;//Dmiddle torso
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X10;
+ 82e:	3b bb       	out	0x1b, r19	; 27
+				PORTB = 0xFD;//lower torso
+ 830:	28 bb       	out	0x18, r18	; 24
+ 832:	01 97       	sbiw	r24, 0x01	; 1
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X08;//
+				PORTB = 0xFD;//Dmiddle torso
+			}
+			for (int i = 0; i < 1000; i++)
+ 834:	e1 f7       	brne	.-8      	; 0x82e <LED_tick+0x69c>
+ 836:	88 ee       	ldi	r24, 0xE8	; 232
+ 838:	93 e0       	ldi	r25, 0x03	; 3
+				PORTA = 0X10;
+				PORTB = 0xFD;//lower torso
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X20;
+ 83a:	30 e2       	ldi	r19, 0x20	; 32
+				PORTB = 0xEB; // upper leg
+ 83c:	2b ee       	ldi	r18, 0xEB	; 235
+				PORTA = 0X10;
+				PORTB = 0xFD;//lower torso
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X20;
+ 83e:	3b bb       	out	0x1b, r19	; 27
+				PORTB = 0xEB; // upper leg
+ 840:	28 bb       	out	0x18, r18	; 24
+ 842:	01 97       	sbiw	r24, 0x01	; 1
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X10;
+				PORTB = 0xFD;//lower torso
+			}
+			for (int i = 0; i < 1000; i++)
+ 844:	e1 f7       	brne	.-8      	; 0x83e <LED_tick+0x6ac>
+ 846:	88 ee       	ldi	r24, 0xE8	; 232
+ 848:	93 e0       	ldi	r25, 0x03	; 3
+				PORTA = 0X20;
+				PORTB = 0xEB; // upper leg
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X40;
+ 84a:	30 e4       	ldi	r19, 0x40	; 64
+				PORTB = 0xF6; // lower leg
+ 84c:	26 ef       	ldi	r18, 0xF6	; 246
+				PORTA = 0X20;
+				PORTB = 0xEB; // upper leg
+			}
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X40;
+ 84e:	3b bb       	out	0x1b, r19	; 27
+				PORTB = 0xF6; // lower leg
+ 850:	28 bb       	out	0x18, r18	; 24
+ 852:	01 97       	sbiw	r24, 0x01	; 1
+			for (int i = 0; i < 1000; i++)
+			{
+				PORTA = 0X20;
+				PORTB = 0xEB; // upper leg
+			}
+			for (int i = 0; i < 1000; i++)
+ 854:	e1 f7       	brne	.-8      	; 0x84e <LED_tick+0x6bc>
+ 856:	08 95       	ret
+
+00000858 <main>:
+			PORTB = 0xF6; // lower leg
+		}*/
+
+int main(void)
+{
+	DDRA = 0XFF;
+ 858:	8f ef       	ldi	r24, 0xFF	; 255
+ 85a:	8a bb       	out	0x1a, r24	; 26
+	PORTA = 0x00;
+ 85c:	1b ba       	out	0x1b, r1	; 27
+	DDRB = 0xFF;
+ 85e:	87 bb       	out	0x17, r24	; 23
+	PORTB = 0X00;
+ 860:	18 ba       	out	0x18, r1	; 24
+	DDRC = 0x00;
+ 862:	14 ba       	out	0x14, r1	; 20
+	PORTC = 0x00;
+ 864:	15 ba       	out	0x15, r1	; 21
+	c_zero = PINC & 0x01;
+ 866:	83 b3       	in	r24, 0x13	; 19
+ 868:	81 70       	andi	r24, 0x01	; 1
+ 86a:	80 93 6b 00 	sts	0x006B, r24
+	unsigned char c_one = PINC & 0x02;
+ 86e:	83 b3       	in	r24, 0x13	; 19
+	LED_State = Noose;
+ 870:	10 92 77 00 	sts	0x0077, r1
+	
+		TimerSet(1);
+ 874:	61 e0       	ldi	r22, 0x01	; 1
+ 876:	70 e0       	ldi	r23, 0x00	; 0
+ 878:	80 e0       	ldi	r24, 0x00	; 0
+ 87a:	90 e0       	ldi	r25, 0x00	; 0
+ 87c:	0e 94 49 00 	call	0x92	; 0x92 <TimerSet>
+		TimerOn();
+ 880:	0e 94 5a 00 	call	0xb4	; 0xb4 <TimerOn>
+		while(1){
+			LED_tick();
+ 884:	0e 94 c9 00 	call	0x192	; 0x192 <LED_tick>
+			while(!TimerFlag);
+ 888:	80 91 68 00 	lds	r24, 0x0068
+ 88c:	88 23       	and	r24, r24
+ 88e:	e1 f3       	breq	.-8      	; 0x888 <__stack+0x29>
+			TimerFlag =0;
+ 890:	10 92 68 00 	sts	0x0068, r1
+			}
+ 894:	f7 cf       	rjmp	.-18     	; 0x884 <__stack+0x25>
+
+00000896 <_exit>:
+ 896:	f8 94       	cli
+
+00000898 <__stop_program>:
+ 898:	ff cf       	rjmp	.-2      	; 0x898 <__stop_program>

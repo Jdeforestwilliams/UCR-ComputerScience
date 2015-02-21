@@ -1,0 +1,156 @@
+
+jdefo002_lab2_part1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000b2  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  000000b2  00000126  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .stab         000006cc  00000000  00000000  00000128  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000082  00000000  00000000  000007f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .comment      0000002f  00000000  00000000  00000876  2**0
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000030  00000000  00000000  000008a5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000152  00000000  00000000  000008d5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000000a6  00000000  00000000  00000a27  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000121  00000000  00000000  00000acd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000044  00000000  00000000  00000bf0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000000ea  00000000  00000000  00000c34  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000000f4  00000000  00000000  00000d1e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000020  00000000  00000000  00000e12  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 3e 00 	call	0x7c	; 0x7c <main>
+  64:	0c 94 57 00 	jmp	0xae	; 0xae <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <GetBit>:
+// Bit-access function
+unsigned char SetBit(unsigned char x, unsigned char k, unsigned char b) {
+	return (b ? x | (0x01 << k) : x & ~(0x01 << k));
+}
+unsigned char GetBit(unsigned char x, unsigned char k) {
+	return ((x & (0x01 << k)) != 0);
+  6c:	90 e0       	ldi	r25, 0x00	; 0
+  6e:	02 c0       	rjmp	.+4      	; 0x74 <GetBit+0x8>
+  70:	95 95       	asr	r25
+  72:	87 95       	ror	r24
+  74:	6a 95       	dec	r22
+  76:	e2 f7       	brpl	.-8      	; 0x70 <GetBit+0x4>
+}
+  78:	81 70       	andi	r24, 0x01	; 1
+  7a:	08 95       	ret
+
+0000007c <main>:
+//DDRA: Configures each of port A's physical pins to input (0) or output (1)
+//PORTA: Writing to this register writes the port's physical pins (Write only)
+//PINA: Reading this register reads the values of the port's physical pins (Read only)
+int main(void)
+{
+	OUTPUT_DDR = 0xFF; //Configures port C's 8 pins as outputs.
+  7c:	8f ef       	ldi	r24, 0xFF	; 255
+  7e:	84 bb       	out	0x14, r24	; 20
+	OUTPUT_OUTPORT = 0x00; //Initialize output on port C to 0x00; 
+  80:	15 ba       	out	0x15, r1	; 21
+	COUNT_A_DDR = 0x00; // Configure Port A's 8 pins as inputs. 
+  82:	1a ba       	out	0x1a, r1	; 26
+	//COUNT_A_OUTPORT = 0xFF; // Configure Port A's 8 pins as inputs. 
+	COUNT_B_DDR = 0x00; // Configure Port B's 8 pins as inputs.
+  84:	17 ba       	out	0x17, r1	; 23
+	//COUNT_B_OUTPORT = 0xFF; // Configure Port B's 8 pins as inputs.  
+	
+	char loop_counter; 
+	char count=0;
+  86:	d0 e0       	ldi	r29, 0x00	; 0
+    while(1)
+    {
+        for (loop_counter=0; loop_counter<8; loop_counter++)
+  88:	10 e0       	ldi	r17, 0x00	; 0
+  8a:	c1 2f       	mov	r28, r17
+		{
+			if (GetBit(COUNT_A_INPORT, loop_counter))
+  8c:	89 b3       	in	r24, 0x19	; 25
+  8e:	6c 2f       	mov	r22, r28
+  90:	0e 94 36 00 	call	0x6c	; 0x6c <GetBit>
+  94:	81 11       	cpse	r24, r1
+			{
+				count +=1 ; 
+  96:	df 5f       	subi	r29, 0xFF	; 255
+			}				
+			
+			if(GetBit(COUNT_B_INPORT, loop_counter))
+  98:	86 b3       	in	r24, 0x16	; 22
+  9a:	6c 2f       	mov	r22, r28
+  9c:	0e 94 36 00 	call	0x6c	; 0x6c <GetBit>
+  a0:	81 11       	cpse	r24, r1
+			{
+				count +=1; 
+  a2:	df 5f       	subi	r29, 0xFF	; 255
+	
+	char loop_counter; 
+	char count=0;
+    while(1)
+    {
+        for (loop_counter=0; loop_counter<8; loop_counter++)
+  a4:	cf 5f       	subi	r28, 0xFF	; 255
+  a6:	c8 30       	cpi	r28, 0x08	; 8
+  a8:	89 f7       	brne	.-30     	; 0x8c <main+0x10>
+			if(GetBit(COUNT_B_INPORT, loop_counter))
+			{
+				count +=1; 
+			}				
+			}
+		OUTPUT_OUTPORT = count;
+  aa:	d5 bb       	out	0x15, r29	; 21
+		}
+  ac:	ee cf       	rjmp	.-36     	; 0x8a <main+0xe>
+
+000000ae <_exit>:
+  ae:	f8 94       	cli
+
+000000b0 <__stop_program>:
+  b0:	ff cf       	rjmp	.-2      	; 0xb0 <__stop_program>

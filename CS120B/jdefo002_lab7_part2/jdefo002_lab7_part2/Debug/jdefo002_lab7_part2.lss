@@ -1,0 +1,392 @@
+
+jdefo002_lab7_part2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000252  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000008  00800060  00000252  000002e6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000007  00800068  00800068  000002ee  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  000002f0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000082  00000000  00000000  000009bc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      0000002f  00000000  00000000  00000a3e  2**0
+                  CONTENTS, READONLY
+  6 .debug_aranges 00000058  00000000  00000000  00000a6d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00000264  00000000  00000000  00000ac5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 00000127  00000000  00000000  00000d29  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00000185  00000000  00000000  00000e50  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  000000dc  00000000  00000000  00000fd8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    000001ab  00000000  00000000  000010b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    000000cb  00000000  00000000  0000125f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 00000048  00000000  00000000  0000132a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 72 00 	jmp	0xe4	; 0xe4 <__vector_10>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e2 e5       	ldi	r30, 0x52	; 82
+  68:	f2 e0       	ldi	r31, 0x02	; 2
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a8 36       	cpi	r26, 0x68	; 104
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a8 e6       	ldi	r26, 0x68	; 104
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	af 36       	cpi	r26, 0x6F	; 111
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 fb 00 	call	0x1f6	; 0x1f6 <main>
+  8a:	0c 94 27 01 	jmp	0x24e	; 0x24e <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <TimerOn>:
+volatile unsigned char Blink = 0x08;
+volatile unsigned char Count_Time = 3;
+volatile unsigned char Blink_Time = 10;
+void TimerOn() {
+   // AVR timer/counter controller register TCCR0
+   TCCR0 = 0x0B;    // bit3bit6=10: CTC mode (clear timer on compare)
+  92:	8b e0       	ldi	r24, 0x0B	; 11
+  94:	83 bf       	out	0x33, r24	; 51
+   // bit2bit1bit0=011: pre-scaler /64
+   // 00001011: 0x0B
+   // SO, 8 MHz clock or 8,000,000 /64 = 125,000 ticks/s
+   // Thus, TCNT0 register will count at 125,000 ticks/s
+   // AVR output compare register OCR0.
+   OCR0 = 125;    // Timer interrupt will be generated when TCNT0==OCR0
+  96:	8d e7       	ldi	r24, 0x7D	; 125
+  98:	8c bf       	out	0x3c, r24	; 60
+   // We want a 1 ms tick. 0.001 s * 125,000 ticks/s = 125
+   // So when TCNT0 register equals 125,
+   // 1 ms has passed. Thus, we compare to 125.
+   // AVR timer interrupt mask register
+   TIMSK = 0x02; // bit1: OCIE0 -- enables compare match interrupt
+  9a:	82 e0       	ldi	r24, 0x02	; 2
+  9c:	89 bf       	out	0x39, r24	; 57
+   //Initialize avr counter
+   TCNT0=0;
+  9e:	12 be       	out	0x32, r1	; 50
+   _avr_timer_cntcurr = _avr_timer_M;
+  a0:	80 91 64 00 	lds	r24, 0x0064
+  a4:	90 91 65 00 	lds	r25, 0x0065
+  a8:	a0 91 66 00 	lds	r26, 0x0066
+  ac:	b0 91 67 00 	lds	r27, 0x0067
+  b0:	80 93 68 00 	sts	0x0068, r24
+  b4:	90 93 69 00 	sts	0x0069, r25
+  b8:	a0 93 6a 00 	sts	0x006A, r26
+  bc:	b0 93 6b 00 	sts	0x006B, r27
+   // TimerISR will be called every _avr_timer_cntcurr milliseconds
+   //Enable global interrupts
+   SREG |= 0x80; // 0x80: 1000000
+  c0:	8f b7       	in	r24, 0x3f	; 63
+  c2:	80 68       	ori	r24, 0x80	; 128
+  c4:	8f bf       	out	0x3f, r24	; 63
+  c6:	08 95       	ret
+
+000000c8 <TimerISR>:
+}
+void TimerOff() {
+   TCCR0 = 0x00; // bit2bit1bit0=000: timer off
+}
+void TimerISR(){
+   TimerFlag = 1;
+  c8:	81 e0       	ldi	r24, 0x01	; 1
+  ca:	80 93 6c 00 	sts	0x006C, r24
+   Count_Time++;
+  ce:	80 91 61 00 	lds	r24, 0x0061
+  d2:	8f 5f       	subi	r24, 0xFF	; 255
+  d4:	80 93 61 00 	sts	0x0061, r24
+   Blink_Time++;
+  d8:	80 91 60 00 	lds	r24, 0x0060
+  dc:	8f 5f       	subi	r24, 0xFF	; 255
+  de:	80 93 60 00 	sts	0x0060, r24
+  e2:	08 95       	ret
+
+000000e4 <__vector_10>:
+}
+// In our approach, the C programmer does not touch this ISR, but rather TimerISR()
+ISR(TIMER0_COMP_vect)
+{
+  e4:	1f 92       	push	r1
+  e6:	0f 92       	push	r0
+  e8:	0f b6       	in	r0, 0x3f	; 63
+  ea:	0f 92       	push	r0
+  ec:	11 24       	eor	r1, r1
+  ee:	2f 93       	push	r18
+  f0:	3f 93       	push	r19
+  f2:	4f 93       	push	r20
+  f4:	5f 93       	push	r21
+  f6:	6f 93       	push	r22
+  f8:	7f 93       	push	r23
+  fa:	8f 93       	push	r24
+  fc:	9f 93       	push	r25
+  fe:	af 93       	push	r26
+ 100:	bf 93       	push	r27
+ 102:	ef 93       	push	r30
+ 104:	ff 93       	push	r31
+   // CPU automatically calls when TCNT0 == OCR0 (every 1 ms per TimerOn settings)
+   _avr_timer_cntcurr--; // Count down to 0 rather than up to TOP
+ 106:	80 91 68 00 	lds	r24, 0x0068
+ 10a:	90 91 69 00 	lds	r25, 0x0069
+ 10e:	a0 91 6a 00 	lds	r26, 0x006A
+ 112:	b0 91 6b 00 	lds	r27, 0x006B
+ 116:	01 97       	sbiw	r24, 0x01	; 1
+ 118:	a1 09       	sbc	r26, r1
+ 11a:	b1 09       	sbc	r27, r1
+ 11c:	80 93 68 00 	sts	0x0068, r24
+ 120:	90 93 69 00 	sts	0x0069, r25
+ 124:	a0 93 6a 00 	sts	0x006A, r26
+ 128:	b0 93 6b 00 	sts	0x006B, r27
+   if (_avr_timer_cntcurr == 0) { // results in a more efficient compare
+ 12c:	89 2b       	or	r24, r25
+ 12e:	8a 2b       	or	r24, r26
+ 130:	8b 2b       	or	r24, r27
+ 132:	91 f4       	brne	.+36     	; 0x158 <__vector_10+0x74>
+   TimerISR(); // Call the ISR that the user uses
+ 134:	0e 94 64 00 	call	0xc8	; 0xc8 <TimerISR>
+   _avr_timer_cntcurr = _avr_timer_M;
+ 138:	80 91 64 00 	lds	r24, 0x0064
+ 13c:	90 91 65 00 	lds	r25, 0x0065
+ 140:	a0 91 66 00 	lds	r26, 0x0066
+ 144:	b0 91 67 00 	lds	r27, 0x0067
+ 148:	80 93 68 00 	sts	0x0068, r24
+ 14c:	90 93 69 00 	sts	0x0069, r25
+ 150:	a0 93 6a 00 	sts	0x006A, r26
+ 154:	b0 93 6b 00 	sts	0x006B, r27
+}
+}
+ 158:	ff 91       	pop	r31
+ 15a:	ef 91       	pop	r30
+ 15c:	bf 91       	pop	r27
+ 15e:	af 91       	pop	r26
+ 160:	9f 91       	pop	r25
+ 162:	8f 91       	pop	r24
+ 164:	7f 91       	pop	r23
+ 166:	6f 91       	pop	r22
+ 168:	5f 91       	pop	r21
+ 16a:	4f 91       	pop	r20
+ 16c:	3f 91       	pop	r19
+ 16e:	2f 91       	pop	r18
+ 170:	0f 90       	pop	r0
+ 172:	0f be       	out	0x3f, r0	; 63
+ 174:	0f 90       	pop	r0
+ 176:	1f 90       	pop	r1
+ 178:	18 95       	reti
+
+0000017a <TimerSet>:
+// Set TimerISR() to tick every M ms
+void TimerSet(unsigned long M) {
+    _avr_timer_M = M;
+ 17a:	60 93 64 00 	sts	0x0064, r22
+ 17e:	70 93 65 00 	sts	0x0065, r23
+ 182:	80 93 66 00 	sts	0x0066, r24
+ 186:	90 93 67 00 	sts	0x0067, r25
+    _avr_timer_cntcurr = _avr_timer_M;
+ 18a:	60 93 68 00 	sts	0x0068, r22
+ 18e:	70 93 69 00 	sts	0x0069, r23
+ 192:	80 93 6a 00 	sts	0x006A, r24
+ 196:	90 93 6b 00 	sts	0x006B, r25
+ 19a:	08 95       	ret
+
+0000019c <TckFct_Counter>:
+unsigned char TckFct_Counter()
+{
+	// Variable we are returning
+
+
+	switch(CounterState)
+ 19c:	80 91 6d 00 	lds	r24, 0x006D
+ 1a0:	81 30       	cpi	r24, 0x01	; 1
+ 1a2:	51 f0       	breq	.+20     	; 0x1b8 <TckFct_Counter+0x1c>
+ 1a4:	18 f0       	brcs	.+6      	; 0x1ac <TckFct_Counter+0x10>
+ 1a6:	82 30       	cpi	r24, 0x02	; 2
+ 1a8:	91 f4       	brne	.+36     	; 0x1ce <TckFct_Counter+0x32>
+ 1aa:	0c c0       	rjmp	.+24     	; 0x1c4 <TckFct_Counter+0x28>
+	{
+		//Transitions
+		case InitState:  // Initial Transition
+         B=0x01;
+ 1ac:	81 e0       	ldi	r24, 0x01	; 1
+ 1ae:	80 93 63 00 	sts	0x0063, r24
+			CounterState = SecState;
+ 1b2:	80 93 6d 00 	sts	0x006D, r24
+         break;
+ 1b6:	08 95       	ret
+		case SecState:  // Initial Transition
+         B=0x02;
+ 1b8:	82 e0       	ldi	r24, 0x02	; 2
+ 1ba:	80 93 63 00 	sts	0x0063, r24
+			CounterState = ThirdState;
+ 1be:	80 93 6d 00 	sts	0x006D, r24
+         break;
+ 1c2:	08 95       	ret
+		case ThirdState:  // Initial Transition
+         B=0x04;
+ 1c4:	84 e0       	ldi	r24, 0x04	; 4
+ 1c6:	80 93 63 00 	sts	0x0063, r24
+			CounterState = InitState;
+ 1ca:	10 92 6d 00 	sts	0x006D, r1
+		case InitState:
+			break;
+		default:
+			break;
+	}
+}
+ 1ce:	08 95       	ret
+
+000001d0 <TckFct_Blink>:
+unsigned char TckFct_Blink()
+{
+	// Variable we are returning
+
+
+	switch(BlinkState)
+ 1d0:	80 91 6e 00 	lds	r24, 0x006E
+ 1d4:	88 23       	and	r24, r24
+ 1d6:	19 f0       	breq	.+6      	; 0x1de <TckFct_Blink+0xe>
+ 1d8:	81 30       	cpi	r24, 0x01	; 1
+ 1da:	61 f4       	brne	.+24     	; 0x1f4 <TckFct_Blink+0x24>
+ 1dc:	07 c0       	rjmp	.+14     	; 0x1ec <TckFct_Blink+0x1c>
+	{
+		//Transitions
+		case InitialState:  // Initial Transition
+         Blink =0x08;
+ 1de:	88 e0       	ldi	r24, 0x08	; 8
+ 1e0:	80 93 62 00 	sts	0x0062, r24
+         BlinkState = Blink_two;
+ 1e4:	81 e0       	ldi	r24, 0x01	; 1
+ 1e6:	80 93 6e 00 	sts	0x006E, r24
+			break;
+ 1ea:	08 95       	ret
+      case Blink_two:
+         Blink = 0x00;
+ 1ec:	10 92 62 00 	sts	0x0062, r1
+         BlinkState = InitialState;
+ 1f0:	10 92 6e 00 	sts	0x006E, r1
+		case InitState:
+			break;
+		default:
+			break;
+	}
+}
+ 1f4:	08 95       	ret
+
+000001f6 <main>:
+void main()
+{
+    DDRB = 0xFF; // Set port B to output
+ 1f6:	8f ef       	ldi	r24, 0xFF	; 255
+ 1f8:	87 bb       	out	0x17, r24	; 23
+    PORTB = 0x00; // Init port B to 0s
+ 1fa:	18 ba       	out	0x18, r1	; 24
+    TimerSet(100);
+ 1fc:	64 e6       	ldi	r22, 0x64	; 100
+ 1fe:	70 e0       	ldi	r23, 0x00	; 0
+ 200:	80 e0       	ldi	r24, 0x00	; 0
+ 202:	90 e0       	ldi	r25, 0x00	; 0
+ 204:	0e 94 bd 00 	call	0x17a	; 0x17a <TimerSet>
+    TimerOn();
+ 208:	0e 94 49 00 	call	0x92	; 0x92 <TimerOn>
+    CounterState = InitState;
+ 20c:	10 92 6d 00 	sts	0x006D, r1
+    BlinkState = InitialState;
+ 210:	10 92 6e 00 	sts	0x006E, r1
+    while(1) {
+        // User code
+        if (Count_Time == 3){
+ 214:	80 91 61 00 	lds	r24, 0x0061
+ 218:	83 30       	cpi	r24, 0x03	; 3
+ 21a:	21 f4       	brne	.+8      	; 0x224 <main+0x2e>
+            TckFct_Counter();
+ 21c:	0e 94 ce 00 	call	0x19c	; 0x19c <TckFct_Counter>
+            Count_Time = 0;
+ 220:	10 92 61 00 	sts	0x0061, r1
+        }
+        if (Blink_Time == 10){
+ 224:	80 91 60 00 	lds	r24, 0x0060
+ 228:	8a 30       	cpi	r24, 0x0A	; 10
+ 22a:	21 f4       	brne	.+8      	; 0x234 <main+0x3e>
+           TckFct_Blink();
+ 22c:	0e 94 e8 00 	call	0x1d0	; 0x1d0 <TckFct_Blink>
+           Blink_Time = 0;
+ 230:	10 92 60 00 	sts	0x0060, r1
+        }
+        PORTB = B|Blink;
+ 234:	80 91 63 00 	lds	r24, 0x0063
+ 238:	90 91 62 00 	lds	r25, 0x0062
+ 23c:	89 2b       	or	r24, r25
+ 23e:	88 bb       	out	0x18, r24	; 24
+       while (!TimerFlag);    // Wait 1 sec
+ 240:	80 91 6c 00 	lds	r24, 0x006C
+ 244:	88 23       	and	r24, r24
+ 246:	e1 f3       	breq	.-8      	; 0x240 <main+0x4a>
+        TimerFlag = 0;
+ 248:	10 92 6c 00 	sts	0x006C, r1
+        // Note: For the above a better style would use a synchSM with TickSM()
+        // This example just illustrates the use of the ISR and flag
+    }
+ 24c:	e3 cf       	rjmp	.-58     	; 0x214 <main+0x1e>
+
+0000024e <_exit>:
+ 24e:	f8 94       	cli
+
+00000250 <__stop_program>:
+ 250:	ff cf       	rjmp	.-2      	; 0x250 <__stop_program>

@@ -1,0 +1,32 @@
+Joshua DeForest-Williams
+Username: Jdefo002
+Email: Jdefo002@ucr.edu
+Project Proposal
+
+Name:
+Hangman
+Concept (how to win and lose): 
+      Hangman is just a game where the player has to complete the word or words given to them by filling the correct letters or guessing the entire word. The player will win if (s)he completes the word before the figure on the LED matrix is complete. 
+
+Rules: 
+      The rules for the game of hangman are simple. There are 3 different levels of game play: easy, medium, and hard. The player will start by picking a level and then by picking if they want to play against the clock, to a particular score level, against another player or against a computer. The level of difficulty will be directly related to how hard the words will be and if they are playing against the computer, how hard the computer will be to beat. 
+	To play against the clock, they just pick a certain amount of time and see how many words they can complete in that amount of time. To play to a particular score level, the player just has to try and complete that many words on their choice of difficulty. To play against another player, the players will need to agree on a score to play to and a level of difficult, then they will race to reach that score first. To play against the computer, they will need to pick the difficult they want their words to be at, how difficult they want to the computer to be and to what score they will be playing to, and then they will try to bet the computer. However if at any point during their game play, the stick figure is complete on the LED matrix, the player will lose. 
+Possible Features:
+1. LED matrix to represent the stick figure hangman. 
+2. A speaker for sound effects to help players keep track of what is going on. 
+3. 3 buttons that could be used as “power-up” to affect the other player’s (or computer’s) game. 
+4. An LCD display to display the word being guessed.
+5. A keypad for the input of the letters. (For example to get ‘C’, you hit the number 2, three times)
+6. A computer AI to play against. 
+7. Seven-Segment Display for score
+Project Plan (Check-offs):
+First Check-off:
+	My plan for the first check off is get the LCD and keypad working correctly with all of the timing. I also plan on finishing up the speaker to output the correct sound effects while I wait for the LED matrices to be delivered.
+ Second Check-off:
+	My plan for the second check off is to get the LED working correctly and implement the second player capabilities, which involves learning about using shift registers and how to communicate between microcontrollers. 
+Third Check-off:
+	My plan for the third check off is to try and put all the finishing touches on it, along with creating the computer AI to play against. 
+Make a table describing what hardware will be connected to what pin(s) on your microcontroller for the proposed project.
+
+see attached jpg file.
+

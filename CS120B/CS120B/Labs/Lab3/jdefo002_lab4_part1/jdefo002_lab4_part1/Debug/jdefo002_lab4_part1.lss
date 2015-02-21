@@ -1,0 +1,232 @@
+
+jdefo002_lab4_part1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000142  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00800060  00000142  000001d6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000001  00800062  00800062  000001d8  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  000001d8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000082  00000000  00000000  000008a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      0000002f  00000000  00000000  00000926  2**0
+                  CONTENTS, READONLY
+  6 .debug_aranges 00000030  00000000  00000000  00000955  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00000189  00000000  00000000  00000985  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000000d5  00000000  00000000  00000b0e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00000123  00000000  00000000  00000be3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000044  00000000  00000000  00000d08  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00000141  00000000  00000000  00000d4c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    00000021  00000000  00000000  00000e8d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 00000020  00000000  00000000  00000eae  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e2 e4       	ldi	r30, 0x42	; 66
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a2 36       	cpi	r26, 0x62	; 98
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a2 e6       	ldi	r26, 0x62	; 98
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a3 36       	cpi	r26, 0x63	; 99
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 90 00 	call	0x120	; 0x120 <main>
+  8a:	0c 94 9f 00 	jmp	0x13e	; 0x13e <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <TickFct_gas>:
+     case Init:
+        break;
+      default:
+        break;
+  }
+  switch (GAS_State){ //State Actions
+  92:	80 91 62 00 	lds	r24, 0x0062
+  96:	81 11       	cpse	r24, r1
+  98:	42 c0       	rjmp	.+132    	; 0x11e <TickFct_gas+0x8c>
+     case Init:
+         if (SENSOR_INPORT > High_level)
+  9a:	89 b3       	in	r24, 0x19	; 25
+  9c:	8d 30       	cpi	r24, 0x0D	; 13
+  9e:	28 f0       	brcs	.+10     	; 0xaa <TickFct_gas+0x18>
+         {
+            SET_PORT_BIT  (led,5);
+  a0:	80 91 60 00 	lds	r24, 0x0060
+  a4:	80 62       	ori	r24, 0x20	; 32
+  a6:	80 93 60 00 	sts	0x0060, r24
+         }
+         if (SENSOR_INPORT > Sec_Hi_level)
+  aa:	89 b3       	in	r24, 0x19	; 25
+  ac:	8a 30       	cpi	r24, 0x0A	; 10
+  ae:	28 f0       	brcs	.+10     	; 0xba <TickFct_gas+0x28>
+         {
+            SET_PORT_BIT (led,4);
+  b0:	80 91 60 00 	lds	r24, 0x0060
+  b4:	80 61       	ori	r24, 0x10	; 16
+  b6:	80 93 60 00 	sts	0x0060, r24
+         }
+         if (SENSOR_INPORT > Mid_Hi_level)
+  ba:	89 b3       	in	r24, 0x19	; 25
+  bc:	87 30       	cpi	r24, 0x07	; 7
+  be:	28 f0       	brcs	.+10     	; 0xca <TickFct_gas+0x38>
+         {
+            SET_PORT_BIT(led,3);
+  c0:	80 91 60 00 	lds	r24, 0x0060
+  c4:	88 60       	ori	r24, 0x08	; 8
+  c6:	80 93 60 00 	sts	0x0060, r24
+         }
+         if (SENSOR_INPORT > Mid_low_level)
+  ca:	89 b3       	in	r24, 0x19	; 25
+  cc:	85 30       	cpi	r24, 0x05	; 5
+  ce:	28 f0       	brcs	.+10     	; 0xda <TickFct_gas+0x48>
+         {
+            SET_PORT_BIT(led,2);
+  d0:	80 91 60 00 	lds	r24, 0x0060
+  d4:	84 60       	ori	r24, 0x04	; 4
+  d6:	80 93 60 00 	sts	0x0060, r24
+         }
+         if (SENSOR_INPORT > Sec_low_level)
+  da:	89 b3       	in	r24, 0x19	; 25
+  dc:	83 30       	cpi	r24, 0x03	; 3
+  de:	28 f0       	brcs	.+10     	; 0xea <TickFct_gas+0x58>
+         {
+            SET_PORT_BIT(led,1);
+  e0:	80 91 60 00 	lds	r24, 0x0060
+  e4:	82 60       	ori	r24, 0x02	; 2
+  e6:	80 93 60 00 	sts	0x0060, r24
+         }
+         if (SENSOR_INPORT > Low_level )
+  ea:	89 b3       	in	r24, 0x19	; 25
+  ec:	88 23       	and	r24, r24
+  ee:	29 f0       	breq	.+10     	; 0xfa <TickFct_gas+0x68>
+         {
+            SET_PORT_BIT(led,0);
+  f0:	80 91 60 00 	lds	r24, 0x0060
+  f4:	81 60       	ori	r24, 0x01	; 1
+  f6:	80 93 60 00 	sts	0x0060, r24
+         }
+         if (SENSOR_INPORT <= Mid_low_level)
+  fa:	89 b3       	in	r24, 0x19	; 25
+  fc:	85 30       	cpi	r24, 0x05	; 5
+  fe:	28 f4       	brcc	.+10     	; 0x10a <TickFct_gas+0x78>
+         {
+            SET_PORT_BIT(led,6);
+ 100:	80 91 60 00 	lds	r24, 0x0060
+ 104:	80 64       	ori	r24, 0x40	; 64
+ 106:	80 93 60 00 	sts	0x0060, r24
+         }
+         if (SENSOR_INPORT > Mid_low_level)
+ 10a:	89 b3       	in	r24, 0x19	; 25
+ 10c:	85 30       	cpi	r24, 0x05	; 5
+ 10e:	28 f0       	brcs	.+10     	; 0x11a <TickFct_gas+0x88>
+         {
+            CLEAR_PORT_BIT(led, 6);
+ 110:	80 91 60 00 	lds	r24, 0x0060
+ 114:	8f 7b       	andi	r24, 0xBF	; 191
+ 116:	80 93 60 00 	sts	0x0060, r24
+         }
+
+         GAS_State = Init;
+ 11a:	10 92 62 00 	sts	0x0062, r1
+ 11e:	08 95       	ret
+
+00000120 <main>:
+// (Write only)
+//PINA: Reading this register reads the values of the port's physical pins
+// (Read only)
+int main(void)
+{
+   SENSOR_DDR = 0x00;
+ 120:	1a ba       	out	0x1a, r1	; 26
+   SENSOR_OUTPORT = 0xFF; // Configure port A's 8 pins as inputs
+ 122:	8f ef       	ldi	r24, 0xFF	; 255
+ 124:	8b bb       	out	0x1b, r24	; 27
+	LED_DDR = 0xFF;
+ 126:	84 bb       	out	0x14, r24	; 20
+   LED_OUTPORT = 0x00; // Configure port C's 8 pins as outputs,
+ 128:	15 ba       	out	0x15, r1	; 21
+   UNUSEDB_DDR = 0X00;
+ 12a:	17 ba       	out	0x17, r1	; 23
+   UNUSEDB_PORT = 0X00;
+ 12c:	18 ba       	out	0x18, r1	; 24
+   UNUSEDD_DDR = 0X00;
+ 12e:	11 ba       	out	0x11, r1	; 17
+   UNUSEDD_PORT = 0X00;
+ 130:	12 ba       	out	0x12, r1	; 18
+    while(1)
+    {
+       TickFct_gas ();
+ 132:	0e 94 49 00 	call	0x92	; 0x92 <TickFct_gas>
+       LED_OUTPORT = led;
+ 136:	80 91 60 00 	lds	r24, 0x0060
+ 13a:	85 bb       	out	0x15, r24	; 21
+ 13c:	fa cf       	rjmp	.-12     	; 0x132 <main+0x12>
+
+0000013e <_exit>:
+ 13e:	f8 94       	cli
+
+00000140 <__stop_program>:
+ 140:	ff cf       	rjmp	.-2      	; 0x140 <__stop_program>

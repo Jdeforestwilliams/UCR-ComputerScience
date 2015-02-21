@@ -1,0 +1,48 @@
+
+   1. Print a square.
+   2. Print upper isosceles triangle.
+   3. Print lower isosceles triangle.
+   4. Exit the program.
+
+   Pick a choice (by number): 
+Enter side length: 
+* * * 
+* * * 
+* * * 
+
+
+   1. Print a square.
+   2. Print upper isosceles triangle.
+   3. Print lower isosceles triangle.
+   4. Exit the program.
+
+   Pick a choice (by number): 
+Enter side length: 
+* * * * * 
+  * * * * 
+    * * * 
+      * * 
+        * 
+
+
+   1. Print a square.
+   2. Print upper isosceles triangle.
+   3. Print lower isosceles triangle.
+   4. Exit the program.
+
+   Pick a choice (by number): 
+Enter side length: 
+*       
+* *     
+* * *   
+* * * * 
+
+
+   1. Print a square.
+   2. Print upper isosceles triangle.
+   3. Print lower isosceles triangle.
+   4. Exit the program.
+
+   Pick a choice (by number): 
+
+

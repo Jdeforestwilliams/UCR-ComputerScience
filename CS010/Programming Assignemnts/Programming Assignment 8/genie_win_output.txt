@@ -1,0 +1,16 @@
+Please enter your name: 
+Name your scariest monster: 
+Kris, you are in a room with 4 doors.
+You are carrying 5 bananas and 3 oranges.
+
+Pick a door to open by typing the direction it is in (N/E/S/W): 
+!!POOF!!
+A genie pops out and grants you 2 bananas and 1 orange.
+
+Kris, you are in a room with 4 doors.
+You are carrying 7 bananas and 4 oranges.
+
+Pick a door to open by typing the direction it is in (N/E/S/W): 
+You found the exit!
+Your score is 11 (7 bananas and 4 oranges).
+Bye bye!!!

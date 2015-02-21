@@ -1,0 +1,26 @@
+﻿UCR EE/CS 120B Lab 22 - Introduction to C and RIMS
+Name: Ariana DeJaco adeja001@ucr.edu
+Partner: Joshua DeForest-Williams jdefo002@ucr.edu
+
+
+Contributions: Ariana (50%), Joshua (50%). We both put in 50/50 participation in this lab and helped each other in debugging pieces of code that we may have struggled with. 
+
+
+Pre-lab -- no prelab for this lab
+
+
+Introductory material -- no problems, everything worked smoothly. The lab itself was long, however. 
+
+Day 1
+
+Exercise 1 -- No issues.
+Exercise 2 -- No issues
+Exercise 3 -- No issues
+Exercise 4 -- No issues
+Exercise 5 -- No issues
+
+Day 2
+Exercise 1 -- No issues.
+Exercise 2 -- No issues
+
+

@@ -1,0 +1,76 @@
+;=================================================
+; 
+; Name: DeForest-Williams, Joshua
+; Login id: Jdefo002
+; 
+; Assignment name: <assn 3>
+; Lab section: <021>
+; TA: Sean Allen
+; 
+; I hereby certify that the contents of this file
+; are ENTIRELY my own original work. 
+;
+;=================================================
+.orig x3000
+LD R4, sec_counter ; second counter to set up counter each time 
+LD R5, counter ; to count up to the power of 2^n needed
+;LD R6, two_n   ; 2^n 
+LD R3, BINARYarr ; to load the adress to store the binary array
+LD R1, input ; to load number into R1
+    BRp First_bit_pos ; to branch if positive to store 0 in first address array
+    BRn First_bit_neg ; to branch if negative to store 1 in first address array
+    
+    First_bit_pos:
+    LD R0, pos ;to load the first bit    
+    STR R0, R3, #0 ;to store it in the array
+    
+    First_bit_neg:
+    LD R0, neg ;to load the first bit    
+    STR R0, R3, #0 ;to store it in the array
+    END_First_bit_neg
+
+
+   
+    LD R6, two_n
+    Loop: 
+    two_to_the_n_loop:
+    LDR R5, R4, #0  ; to set the counter to the right number 
+    ADD R6, R6, R6 ; to get to 2^n of what what is needed 
+    ADD R5, R5, #-1 ; to lower the counter to stop at zero  
+    BRp two_to_the_n_loop   
+    ADD R4, R4, #-1 ; to lower second counter  
+    LDR R5, R4, #0  ; to set the counter to the right number 
+
+
+    NOT R2, R6 ; to create the two's complement from the 2^n number
+    ADD R2, R2, #1 ; to create the two's complement from the 2^n number
+    ADD R1, R1, R2 ;subtracting 2^n from the number    
+    BRn First_bit_pos
+    BRp First_bit_neg
+BRz else
+    BRnp Loop
+else:    
+LD R6, out_counter
+OUTPUT_LOOP:
+LDR R0, R3, #0
+OUT
+ADD R3, R3, #1
+ADD R6, R6, #-1  ; R6 <-- R6-1 (update loop counter. R6 is now the LMR)
+BRp OUTPUT_LOOP
+
+HALT
+input .FILL #1000 ;number to output in binary
+pos .FILL #0  ; used to output 0
+neg .FILL #1  ; used to output  1
+FIFTEEN .FILL #32768
+FOURTEEN .FILL #16384
+THIRTEEN .FILL #8192
+counter .FILL #12
+sec_counter .FILL #12
+out_counter .FILL #16
+BINARYarr .FILL x4000  ; to access the array for binary code 
+two_n .FILL #2
+
+.orig x4000
+Barr .BLKW #16
+

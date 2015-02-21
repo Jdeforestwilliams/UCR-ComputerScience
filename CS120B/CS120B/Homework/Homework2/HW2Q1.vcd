@@ -1,0 +1,592 @@
+$date
+	04/27/13 13:06:58
+$end
+$version
+	RIMS 2.3
+$end
+$timescale
+	1 ms
+$end
+$scope module RIMS $end
+$var wire 1 *TMR TIMER_ISR $end
+$var wire 1 *A0 A0 $end
+$var wire 1 *A1 A1 $end
+$var wire 1 *A2 A2 $end
+$var wire 1 *A3 A3 $end
+$var wire 1 *A4 A4 $end
+$var wire 1 *A5 A5 $end
+$var wire 1 *A6 A6 $end
+$var wire 1 *A7 A7 $end
+$var wire 1 *B0 B0 $end
+$var wire 1 *B1 B1 $end
+$var wire 1 *B2 B2 $end
+$var wire 1 *B3 B3 $end
+$var wire 1 *B4 B4 $end
+$var wire 1 *B5 B5 $end
+$var wire 1 *B6 B6 $end
+$var wire 1 *B7 B7 $end
+$upscope $end
+$enddefinitions $end
+
+#0
+$dumpvars
+b0 *TMR
+b0 *A0
+b0 *A1
+b0 *A2
+b0 *A3
+b0 *A4
+b0 *A5
+b0 *A6
+b0 *A7
+b0 *B0
+b0 *B1
+b0 *B2
+b0 *B3
+b0 *B4
+b0 *B5
+b0 *B6
+b0 *B7
+$end
+#1951
+b1 *A0
+#1951
+b1 *A0
+#1979
+b1 *B0
+#3301
+b0 *A0
+#3301
+b0 *A0
+#4351
+b1 *A0
+#4351
+b1 *A0
+#4361
+b0 *B0
+#4361
+b1 *B1
+#7601
+b0 *A0
+#7601
+b0 *A0
+#8801
+b1 *A0
+#8801
+b1 *A0
+#8810
+b1 *B0
+#9501
+b0 *A0
+#9501
+b0 *A0
+#10201
+b1 *A0
+#10201
+b1 *A0
+#10219
+b0 *B0
+#10219
+b0 *B1
+#10219
+b1 *B2
+#11001
+b0 *A0
+#11001
+b0 *A0
+#11601
+b1 *A0
+#11601
+b1 *A0
+#11611
+b1 *B0
+#12701
+b0 *A0
+#12701
+b0 *A0
+#14051
+b1 *A0
+#14051
+b1 *A0
+#14075
+b0 *B0
+#14075
+b1 *B1
+#15051
+b0 *A0
+#15051
+b0 *A0
+#15751
+b1 *A0
+#15751
+b1 *A0
+#15781
+b1 *B0
+#16301
+b0 *A0
+#16301
+b0 *A0
+#17051
+b1 *A0
+#17051
+b1 *A0
+#17078
+b0 *B0
+#17078
+b0 *B1
+#17078
+b0 *B2
+#17078
+b1 *B3
+#17701
+b0 *A0
+#17701
+b0 *A0
+#18401
+b1 *A1
+#18401
+b1 *A1
+#18410
+b0 *B3
+#19201
+b0 *A1
+#19201
+b0 *A1
+#19751
+b1 *A0
+#19751
+b1 *A0
+#19764
+b1 *B0
+#20301
+b0 *A0
+#20301
+b0 *A0
+#21001
+b1 *A0
+#21001
+b1 *A0
+#21011
+b0 *B0
+#21011
+b1 *B1
+#21651
+b0 *A0
+#21651
+b0 *A0
+#22301
+b1 *A0
+#22301
+b1 *A0
+#22316
+b1 *B0
+#22901
+b0 *A0
+#22901
+b0 *A0
+#23601
+b1 *A0
+#23601
+b1 *A0
+#23617
+b0 *B0
+#23617
+b0 *B1
+#23617
+b1 *B2
+#24201
+b0 *A0
+#24201
+b0 *A0
+#24901
+b1 *A0
+#24901
+b1 *A0
+#24918
+b1 *B0
+#25651
+b0 *A0
+#25651
+b0 *A0
+#26351
+b1 *A0
+#26351
+b1 *A0
+#26381
+b0 *B0
+#26381
+b1 *B1
+#27051
+b0 *A0
+#27051
+b0 *A0
+#27751
+b1 *A0
+#27751
+b1 *A0
+#27763
+b1 *B0
+#28351
+b1 *A1
+#28351
+b1 *A1
+#29051
+b0 *A0
+#29051
+b0 *A0
+#29068
+b0 *B0
+#29068
+b0 *B1
+#29068
+b0 *B2
+#29601
+b0 *A1
+#29601
+b0 *A1
+#30201
+b1 *A0
+#30201
+b1 *A0
+#30212
+b1 *B0
+#30751
+b0 *A0
+#30751
+b0 *A0
+#31401
+b1 *A0
+#31401
+b1 *A0
+#31411
+b0 *B0
+#31411
+b1 *B1
+#32051
+b0 *A0
+#32051
+b0 *A0
+#32551
+b1 *A0
+#32551
+b1 *A0
+#32566
+b1 *B0
+#33201
+b0 *A0
+#33201
+b0 *A0
+#33951
+b1 *A0
+#33951
+b1 *A0
+#33971
+b0 *B0
+#33971
+b0 *B1
+#33971
+b1 *B2
+#36651
+b0 *A0
+#36651
+b0 *A0
+#37301
+b1 *A1
+#37301
+b1 *A1
+#37305
+b0 *B2
+#37901
+b0 *A1
+#37901
+b0 *A1
+#1951
+b1 *A0
+#1951
+b1 *A0
+#1977
+bOutput pins should never be read *Error
+#1979
+b1 *B0
+#3301
+b0 *A0
+#3301
+b0 *A0
+#4351
+b1 *A0
+#4351
+b1 *A0
+#4359
+bOutput pins should never be read *Error
+#4361
+b0 *B0
+#4361
+b1 *B1
+#7601
+b0 *A0
+#7601
+b0 *A0
+#8801
+b1 *A0
+#8801
+b1 *A0
+#8808
+bOutput pins should never be read *Error
+#8810
+b1 *B0
+#9501
+b0 *A0
+#9501
+b0 *A0
+#10201
+b1 *A0
+#10201
+b1 *A0
+#10217
+bOutput pins should never be read *Error
+#10219
+b0 *B0
+#10219
+b0 *B1
+#10219
+b1 *B2
+#11001
+b0 *A0
+#11001
+b0 *A0
+#11601
+b1 *A0
+#11601
+b1 *A0
+#11609
+bOutput pins should never be read *Error
+#11611
+b1 *B0
+#12701
+b0 *A0
+#12701
+b0 *A0
+#14051
+b1 *A0
+#14051
+b1 *A0
+#14073
+bOutput pins should never be read *Error
+#14075
+b0 *B0
+#14075
+b1 *B1
+#15051
+b0 *A0
+#15051
+b0 *A0
+#15751
+b1 *A0
+#15751
+b1 *A0
+#15779
+bOutput pins should never be read *Error
+#15781
+b1 *B0
+#16301
+b0 *A0
+#16301
+b0 *A0
+#17051
+b1 *A0
+#17051
+b1 *A0
+#17076
+bOutput pins should never be read *Error
+#17078
+b0 *B0
+#17078
+b0 *B1
+#17078
+b0 *B2
+#17078
+b1 *B3
+#17701
+b0 *A0
+#17701
+b0 *A0
+#18401
+b1 *A1
+#18401
+b1 *A1
+#18410
+b0 *B3
+#19201
+b0 *A1
+#19201
+b0 *A1
+#19751
+b1 *A0
+#19751
+b1 *A0
+#19762
+bOutput pins should never be read *Error
+#19764
+b1 *B0
+#20301
+b0 *A0
+#20301
+b0 *A0
+#21001
+b1 *A0
+#21001
+b1 *A0
+#21009
+bOutput pins should never be read *Error
+#21011
+b0 *B0
+#21011
+b1 *B1
+#21651
+b0 *A0
+#21651
+b0 *A0
+#22301
+b1 *A0
+#22301
+b1 *A0
+#22314
+bOutput pins should never be read *Error
+#22316
+b1 *B0
+#22901
+b0 *A0
+#22901
+b0 *A0
+#23601
+b1 *A0
+#23601
+b1 *A0
+#23615
+bOutput pins should never be read *Error
+#23617
+b0 *B0
+#23617
+b0 *B1
+#23617
+b1 *B2
+#24201
+b0 *A0
+#24201
+b0 *A0
+#24901
+b1 *A0
+#24901
+b1 *A0
+#24916
+bOutput pins should never be read *Error
+#24918
+b1 *B0
+#25651
+b0 *A0
+#25651
+b0 *A0
+#26351
+b1 *A0
+#26351
+b1 *A0
+#26379
+bOutput pins should never be read *Error
+#26381
+b0 *B0
+#26381
+b1 *B1
+#27051
+b0 *A0
+#27051
+b0 *A0
+#27751
+b1 *A0
+#27751
+b1 *A0
+#27761
+bOutput pins should never be read *Error
+#27763
+b1 *B0
+#28351
+b1 *A1
+#28351
+b1 *A1
+#29051
+b0 *A0
+#29051
+b0 *A0
+#29068
+b0 *B0
+#29068
+b0 *B1
+#29068
+b0 *B2
+#29601
+b0 *A1
+#29601
+b0 *A1
+#30201
+b1 *A0
+#30201
+b1 *A0
+#30210
+bOutput pins should never be read *Error
+#30212
+b1 *B0
+#30751
+b0 *A0
+#30751
+b0 *A0
+#31401
+b1 *A0
+#31401
+b1 *A0
+#31409
+bOutput pins should never be read *Error
+#31411
+b0 *B0
+#31411
+b1 *B1
+#32051
+b0 *A0
+#32051
+b0 *A0
+#32551
+b1 *A0
+#32551
+b1 *A0
+#32564
+bOutput pins should never be read *Error
+#32566
+b1 *B0
+#33201
+b0 *A0
+#33201
+b0 *A0
+#33951
+b1 *A0
+#33951
+b1 *A0
+#33969
+bOutput pins should never be read *Error
+#33971
+b0 *B0
+#33971
+b0 *B1
+#33971
+b1 *B2
+#36651
+b0 *A0
+#36651
+b0 *A0
+#37301
+b1 *A1
+#37301
+b1 *A1
+#37305
+b0 *B2
+#37901
+b0 *A1
+#37901
+b0 *A1

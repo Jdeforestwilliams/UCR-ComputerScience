@@ -1,0 +1,46 @@
+File - commaANDexclamate_withE.txt
+Words: 13
+Syllables: 19
+Sentences: 1
+Legibility Index: 70
+
+
+File - period_withE.txt
+Words: 13
+Syllables: 19
+Sentences: 1
+Legibility Index: 70
+
+
+File - exclamate_withE.txt
+Words: 13
+Syllables: 19
+Sentences: 1
+Legibility Index: 70
+
+
+File - decl_ind.txt
+Words: 1320
+Syllables: 2178
+Sentences: 53
+Legibility Index: 42
+
+
+File - lab4_example.txt
+Words: 6
+Syllables: 6
+Sentences: 2
+Legibility Index: 119
+
+
+File - si_article.txt
+Words: 5127
+Syllables: 8145
+Sentences: 247
+Legibility Index: 51
+
+File - in_class_example.txt
+Words: 3
+Syllables: 6
+Sentences: 1
+Legibility Index: 35

@@ -1,0 +1,26 @@
+﻿UCR EE/CS 120B Lab 22 - Introduction to C and RIMS
+Name: Joshua DeForest-Williams jdefo002@ucr.edu
+Partner: Ariana DeJaco adeja001@ucr.edu
+
+
+Contributions: Joshua (50%), Ariana (50%). We both equally worked on this lab. Ariana did most of the typing for day 1, while I did most of the typing for day 2. However we thoroughly discussed the solutions to each excise completed.  
+
+
+Pre-lab -- no prelab for this lab
+
+
+Introductory material – There were no problems, with this lab, however it was very time consuming.  
+
+Day 1
+
+Exercise 1 -- No issues with this exercise.
+Exercise 2 -- No issues with this exercise.
+Exercise 3 -- No issues with this exercise.
+Exercise 4 -- No issues with this exercise.
+Exercise 5 -- No issues with this exercise.
+
+Day 2
+Exercise 1 -- No issues with this exercise.
+Exercise 2 -- No issues with this exercise.
+
+
